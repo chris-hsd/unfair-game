@@ -1,12 +1,6 @@
 [gd_resource type="Resource" script_class="Personality" format=3 uid="uid://ogjg6m0uvonj"]
 
-[ext_resource type="Script" path="res://scripts/personality.gd" id="1_personality"]
+[ext_resource type="Script" uid="uid://51x5owdqvc5h" path="res://scripts/personality.gd" id="1_personality"]
 
 [resource]
 script = ExtResource("1_personality")
-modifiers = {
-"Aktionsmodus": 5,
-"Aufmerksamkeitsfokus": "Sichtbarkeit",
-"Regelbindung": 0.5,
-"Interpretation": "Defizite"
-}
