@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Project" format=3 uid="uid://bproject_nachhalt"]
+
+[ext_resource type="Script" path="res://scripts/project.gd" id="1_project"]
+
+[resource]
+script = ExtResource("1_project")
+titel = "Nachhaltigkeit"
+ressourcenbedarf = 0
+aussenwirkung = 2
+transformation = 1

@@ -4,3 +4,6 @@
 
 [resource]
 script = ExtResource("1_personality")
+player = "old_man"
+aufmerksamkeit = 0
+regelbindung = 0.61

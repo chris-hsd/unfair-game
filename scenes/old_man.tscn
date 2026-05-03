@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://do0nq5vot868c"]
 
 [ext_resource type="Script" uid="uid://bcjvpjqaewdy5" path="res://scenes/old_man.gd" id="2_player"]
-[ext_resource type="SpriteFrames" path="res://assets/characters/old_man_spritesheet.tres" id="3_hdlgl"]
+[ext_resource type="SpriteFrames" uid="uid://7unduiunpmc5" path="res://assets/characters/old_man_spritesheet.tres" id="3_hdlgl"]
 [ext_resource type="Resource" uid="uid://ogjg6m0uvonj" path="res://assets/characters/old_man_personality.tres" id="3_personality"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3vyb7"]

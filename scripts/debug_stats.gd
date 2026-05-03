@@ -12,4 +12,4 @@ func _unhandled_input(event: InputEvent) -> void:
 			if p == null:
 				print("[%s] no personality assigned" % label)
 				continue
-			print("[%s] %s" % [label, p.modifiers])
+			print("[%s] %s" % [label, p.describe()])

@@ -1,10 +1,19 @@
 [gd_scene format=3 uid="uid://2rm75aggmnjt"]
 
 [ext_resource type="PackedScene" uid="uid://do0nq5vot868c" path="res://scenes/old_man.tscn" id="1_uwrxv"]
+[ext_resource type="PackedScene" uid="uid://chudoldman001" path="res://scenes/hud.tscn" id="2_hud"]
+[ext_resource type="Script" uid="uid://drah6ikibqpuw" path="res://scripts/current_project.gd" id="3_curproj"]
+[ext_resource type="Resource" path="res://assets/projects/nachhaltigkeit.tres" id="4_project"]
 
 [node name="Game" type="Node2D" unique_id=630053644]
 
 [node name="Old_man" parent="." unique_id=614380754 instance=ExtResource("1_uwrxv")]
 
+[node name="HUD" parent="." unique_id=1415199076 instance=ExtResource("2_hud")]
+
 [node name="Camera2D" type="Camera2D" parent="." unique_id=422782666]
 zoom = Vector2(5, 5)
+
+[node name="CurrentProject" type="Node" parent="." unique_id=410623912]
+script = ExtResource("3_curproj")
+project = ExtResource("4_project")
