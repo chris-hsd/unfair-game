@@ -1,0 +1,32 @@
+extends CharacterBody2D
+
+@export var speed: float = 80.0
+@export var personality: Personality
+
+@onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
+
+var last_dir: String = "S"
+
+func _ready() -> void:
+	add_to_group("stats_owner")
+
+func _physics_process(_delta: float) -> void:
+	var input_vec := Input.get_vector("move_left", "move_right", "move_up", "move_down")
+	velocity = input_vec * speed
+	move_and_slide()
+
+	if input_vec.length() > 0.1:
+		last_dir = _dir_from_vector(input_vec)
+		sprite.play("walk_" + last_dir)
+	else:
+		sprite.stop()
+		sprite.frame = 0
+
+func _dir_from_vector(v: Vector2) -> String:
+	var angle := rad_to_deg(v.angle())
+	if angle < 0:
+		angle += 360.0
+	# 0° = E, 90° = S (Godot Y-down), 180° = W, 270° = N
+	var sectors := ["E", "SE", "S", "SW", "W", "NW", "N", "NE"]
+	var idx := int(round(angle / 45.0)) % 8
+	return sectors[idx]

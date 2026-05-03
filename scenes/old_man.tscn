@@ -1,0 +1,18 @@
+[gd_scene load_steps=5 format=3 uid="uid://do0nq5vot868c"]
+
+[ext_resource type="SpriteFrames" uid="uid://cl3mhnmvl37qf" path="res://assets/characters/white_man_spritesheet.tres" id="1_3vyb7"]
+[ext_resource type="Script" uid="uid://bcjvpjqaewdy5" path="res://scenes/old_man.gd" id="2_player"]
+[ext_resource type="Resource" path="res://assets/characters/old_man_personality.tres" id="3_personality"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3vyb7"]
+
+[node name="Old_man" type="CharacterBody2D" unique_id=614380754]
+script = ExtResource("2_player")
+personality = ExtResource("3_personality")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1959551948]
+sprite_frames = ExtResource("1_3vyb7")
+animation = &"walk_S"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1987986444]
+shape = SubResource("CapsuleShape2D_3vyb7")
