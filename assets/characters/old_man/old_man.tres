@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="CharacterDef" format=3 uid="uid://bc2mf8koujqjo"]
+
+[ext_resource type="Script" path="res://scripts/character_def.gd" id="1_def"]
+[ext_resource type="SpriteFrames" uid="uid://7unduiunpmc5" path="res://assets/characters/old_man/old_man_spritesheet.tres" id="2_frames"]
+[ext_resource type="Resource" uid="uid://ogjg6m0uvonj" path="res://assets/characters/old_man/old_man_personality.tres" id="3_personality"]
+
+[resource]
+script = ExtResource("1_def")
+id = &"old_man"
+display_name = "Old Man"
+sprite_frames = ExtResource("2_frames")
+personality = ExtResource("3_personality")
+frame_size = Vector2i(48, 48)

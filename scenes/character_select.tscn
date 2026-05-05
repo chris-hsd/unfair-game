@@ -1,0 +1,60 @@
+[gd_scene format=3 uid="uid://d0mqhwaas6ec3"]
+
+[ext_resource type="Script" path="res://scripts/character_select.gd" id="1_select"]
+
+[node name="CharacterSelect" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource("1_select")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(0.07, 0.08, 0.12, 1)
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -400.0
+offset_top = 80.0
+offset_right = 400.0
+offset_bottom = 160.0
+horizontal_alignment = 1
+text = "Wähle deinen Charakter"
+theme_override_font_sizes/font_size = 56
+
+[node name="Center" type="Node2D" parent="."]
+position = Vector2(850, 500)
+
+[node name="Preview" type="AnimatedSprite2D" parent="Center"]
+scale = Vector2(4, 4)
+
+[node name="Name" type="Label" parent="Center"]
+offset_left = -300.0
+offset_top = 200.0
+offset_right = 300.0
+offset_bottom = 260.0
+horizontal_alignment = 1
+text = "—"
+theme_override_font_sizes/font_size = 36
+
+[node name="Hint" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -400.0
+offset_top = -80.0
+offset_right = 400.0
+offset_bottom = -40.0
+horizontal_alignment = 1
+text = "← →  Auswählen     A / Enter  Bestätigen"
+theme_override_font_sizes/font_size = 24

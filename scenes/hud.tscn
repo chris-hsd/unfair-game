@@ -1,7 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://chudoldman001"]
+[gd_scene format=3 uid="uid://chudoldman001"]
 
-[ext_resource type="Script" path="res://scenes/hud.gd" id="1_hud"]
-[ext_resource type="Resource" uid="uid://ogjg6m0uvonj" path="res://assets/characters/old_man_personality.tres" id="2_personality"]
+[ext_resource type="Script" uid="uid://cunis5icpl3w4" path="res://scenes/hud.gd" id="1_hud"]
+[ext_resource type="Resource" uid="uid://ogjg6m0uvonj" path="res://assets/characters/old_man/old_man_personality.tres" id="2_personality"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hud"]
 bg_color = Color(0, 0, 0, 0.55)

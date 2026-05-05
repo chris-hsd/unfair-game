@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b574tdfw7tto6"
-path="res://.godot/imported/old_man_spritesheet.png-01cbb0510fb95a86f56a882c57e6e2a9.ctex"
+uid="uid://bdptocnkms8kd"
+path="res://.godot/imported/young_femal_spritesheet.png-47f29b4714a8c06a2dfdb005178b333b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/characters/old_man_spritesheet.png"
-dest_files=["res://.godot/imported/old_man_spritesheet.png-01cbb0510fb95a86f56a882c57e6e2a9.ctex"]
+source_file="res://assets/characters/young_woman/young_femal_spritesheet.png"
+dest_files=["res://.godot/imported/young_femal_spritesheet.png-47f29b4714a8c06a2dfdb005178b333b.ctex"]
 
 [params]
 

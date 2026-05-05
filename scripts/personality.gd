@@ -1,7 +1,7 @@
 extends Resource
 class_name Personality
 
-enum Focus { LEISTUNG, KREATIVITAET, SICHTBARKEIT, FOERDERUNG }
+enum Focus { LEISTUNG, SICHTBARKEIT, FOERDERUNG }
 enum Interpretation { DEFIZITE, POTENTIAL, STRUKTUR }
 
 @export var player: String = ""

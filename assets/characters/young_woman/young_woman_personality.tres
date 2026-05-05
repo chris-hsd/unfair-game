@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Personality" format=3 uid="uid://dnshtrogotps7"]
+
+[ext_resource type="Script" uid="uid://51x5owdqvc5h" path="res://scripts/personality.gd" id="1_personality"]
+
+[resource]
+script = ExtResource("1_personality")
+player = "young_woman"
+aktionsmodus = 6
+aufmerksamkeit = 1
+regelbindung = 0.42
+interpretation = 1

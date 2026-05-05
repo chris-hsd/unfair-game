@@ -16,6 +16,10 @@ extends CanvasLayer
 var _project: Project
 
 func _ready() -> void:
+	if Engine.has_singleton("GameState") or get_node_or_null("/root/GameState") != null:
+		var gs := get_node("/root/GameState")
+		if gs.current_character != null and gs.current_character.personality != null:
+			personality = gs.current_character.personality
 	if personality != null:
 		personality.changed.connect(update_stats)
 	update_stats()
