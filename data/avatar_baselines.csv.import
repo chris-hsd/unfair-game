@@ -1,0 +1,19 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://dwgf1t34ief8u"
+
+[deps]
+
+files=["res://data/avatar_baselines.proj.translation", "res://data/avatar_baselines.proj.translation", "res://data/avatar_baselines.proj.translation", "res://data/avatar_baselines.proj.translation", "res://data/avatar_baselines.sch.translation", "res://data/avatar_baselines.sch.translation", "res://data/avatar_baselines.sch.translation", "res://data/avatar_baselines.sch.translation", "res://data/avatar_baselines.lt.translation", "res://data/avatar_baselines.lt.translation", "res://data/avatar_baselines.lt.translation", "res://data/avatar_baselines.lt.translation", "res://data/avatar_baselines.lt.translation", "res://data/avatar_baselines.lt.translation", "res://data/avatar_baselines.lt.translation", "res://data/avatar_baselines.lt.translation", "res://data/avatar_baselines.ag.translation", "res://data/avatar_baselines.ag.translation", "res://data/avatar_baselines.ag.translation", "res://data/avatar_baselines.ag.translation"]
+
+source_file="res://data/avatar_baselines.csv"
+dest_files=["res://data/avatar_baselines.proj.translation", "res://data/avatar_baselines.proj.translation", "res://data/avatar_baselines.proj.translation", "res://data/avatar_baselines.proj.translation", "res://data/avatar_baselines.sch.translation", "res://data/avatar_baselines.sch.translation", "res://data/avatar_baselines.sch.translation", "res://data/avatar_baselines.sch.translation", "res://data/avatar_baselines.lt.translation", "res://data/avatar_baselines.lt.translation", "res://data/avatar_baselines.lt.translation", "res://data/avatar_baselines.lt.translation", "res://data/avatar_baselines.lt.translation", "res://data/avatar_baselines.lt.translation", "res://data/avatar_baselines.lt.translation", "res://data/avatar_baselines.lt.translation", "res://data/avatar_baselines.ag.translation", "res://data/avatar_baselines.ag.translation", "res://data/avatar_baselines.ag.translation", "res://data/avatar_baselines.ag.translation"]
+
+[params]
+
+compress=1
+delimiter=0
+unescape_keys=false
+unescape_translations=true

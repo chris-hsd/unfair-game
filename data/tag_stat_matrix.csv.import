@@ -1,0 +1,19 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://8huh3p7rvph3"
+
+[deps]
+
+files=["res://data/tag_stat_matrix.proj.translation", "res://data/tag_stat_matrix.proj.translation", "res://data/tag_stat_matrix.proj.translation", "res://data/tag_stat_matrix.proj.translation", "res://data/tag_stat_matrix.sch.translation", "res://data/tag_stat_matrix.sch.translation", "res://data/tag_stat_matrix.sch.translation", "res://data/tag_stat_matrix.sch.translation", "res://data/tag_stat_matrix.lt.translation", "res://data/tag_stat_matrix.lt.translation", "res://data/tag_stat_matrix.lt.translation", "res://data/tag_stat_matrix.lt.translation", "res://data/tag_stat_matrix.lt.translation", "res://data/tag_stat_matrix.lt.translation", "res://data/tag_stat_matrix.lt.translation", "res://data/tag_stat_matrix.lt.translation", "res://data/tag_stat_matrix.ag.translation", "res://data/tag_stat_matrix.ag.translation", "res://data/tag_stat_matrix.ag.translation", "res://data/tag_stat_matrix.ag.translation"]
+
+source_file="res://data/tag_stat_matrix.csv"
+dest_files=["res://data/tag_stat_matrix.proj.translation", "res://data/tag_stat_matrix.proj.translation", "res://data/tag_stat_matrix.proj.translation", "res://data/tag_stat_matrix.proj.translation", "res://data/tag_stat_matrix.sch.translation", "res://data/tag_stat_matrix.sch.translation", "res://data/tag_stat_matrix.sch.translation", "res://data/tag_stat_matrix.sch.translation", "res://data/tag_stat_matrix.lt.translation", "res://data/tag_stat_matrix.lt.translation", "res://data/tag_stat_matrix.lt.translation", "res://data/tag_stat_matrix.lt.translation", "res://data/tag_stat_matrix.lt.translation", "res://data/tag_stat_matrix.lt.translation", "res://data/tag_stat_matrix.lt.translation", "res://data/tag_stat_matrix.lt.translation", "res://data/tag_stat_matrix.ag.translation", "res://data/tag_stat_matrix.ag.translation", "res://data/tag_stat_matrix.ag.translation", "res://data/tag_stat_matrix.ag.translation"]
+
+[params]
+
+compress=1
+delimiter=0
+unescape_keys=false
+unescape_translations=true

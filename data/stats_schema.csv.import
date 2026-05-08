@@ -1,0 +1,19 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://b2wctfwr1oijn"
+
+[deps]
+
+files=["res://data/stats_schema.corner.translation", "res://data/stats_schema.name.translation", "res://data/stats_schema.scale.translation", "res://data/stats_schema.scale.translation", "res://data/stats_schema.magnitude.translation", "res://data/stats_schema.note.translation"]
+
+source_file="res://data/stats_schema.csv"
+dest_files=["res://data/stats_schema.corner.translation", "res://data/stats_schema.name.translation", "res://data/stats_schema.scale.translation", "res://data/stats_schema.scale.translation", "res://data/stats_schema.magnitude.translation", "res://data/stats_schema.note.translation"]
+
+[params]
+
+compress=1
+delimiter=0
+unescape_keys=false
+unescape_translations=true

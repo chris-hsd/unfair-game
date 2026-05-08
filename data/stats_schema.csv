@@ -1,0 +1,21 @@
+stat_id,corner,name_de,scale_min,scale_max,magnitude_factor,note
+proj_sicht,projekt,Sichtbarkeit,1,10,1.0,
+proj_ress,projekt,Ressourcen,1,10,1.0,sinkt durch Verbrauch
+proj_transf,projekt,Transformation,1,10,1.0,waechst ueber Projektlauf
+proj_stab,projekt,Stabilitaet,1,10,1.0,Krisen-Indikator
+sch_vert,schule,Vertrauen,1,10,1.0,
+sch_rep,schule,Reputation,1,10,1.0,
+sch_norm,schule,Normen,1,10,1.0,Kulturmass
+sch_unt,schule,Unterstützung,1,10,1.0,Raum/Material/Zeit
+lt_akt,leitung,Aktionsmodus,1,10,0.3,proaktiv-reaktiv
+lt_reg,leitung,Regelbindung,1,10,0.3,strikt-improvisierend
+lt_aufm_leist,leitung,Aufmerksamkeit/Leistung,1,10,0.3,P-Pol
+lt_aufm_sicht,leitung,Aufmerksamkeit/Sichtbarkeit,1,10,0.3,P-Pol
+lt_aufm_foerd,leitung,Aufmerksamkeit/Foerderung,1,10,0.3,P-Pol
+lt_int_def,leitung,Interpretation/Defizit,1,10,0.3,P-Pol
+lt_int_pot,leitung,Interpretation/Potenzial,1,10,0.3,P-Pol
+lt_int_str,leitung,Interpretation/Struktur,1,10,0.3,P-Pol
+ag_anerk,ag_mitglieder,Anerkennung,1,10,1.0,aggregat
+ag_bet,ag_mitglieder,Beteiligung,1,10,1.0,aggregat
+ag_komm,ag_mitglieder,Kommentar,1,10,1.0,aggregat
+ag_abh,ag_mitglieder,Abhaengigkeit,1,10,1.0,aggregat

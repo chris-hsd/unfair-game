@@ -6,7 +6,7 @@
 
 [resource]
 script = ExtResource("1_def")
-id = &"old_man"
+id = &"alter_mann"
 display_name = "Old Man"
 sprite_frames = ExtResource("2_frames")
 personality = ExtResource("3_personality")

@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://chudoldman001"]
 
 [ext_resource type="Script" uid="uid://cunis5icpl3w4" path="res://scenes/hud.gd" id="1_hud"]
-[ext_resource type="Resource" uid="uid://ogjg6m0uvonj" path="res://assets/characters/old_man/old_man_personality.tres" id="2_personality"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hud"]
 bg_color = Color(0, 0, 0, 0.55)
@@ -12,7 +11,6 @@ corner_radius_bottom_left = 6
 
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource("1_hud")
-personality = ExtResource("2_personality")
 
 [node name="Root" type="Control" parent="."]
 layout_mode = 3
@@ -21,92 +19,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
 
-[node name="Panel" type="PanelContainer" parent="Root"]
-layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_left = 12.0
-offset_top = -218.0
-offset_right = 420.0
-offset_bottom = -12.0
-grow_vertical = 0
-theme_override_styles/panel = SubResource("StyleBoxFlat_hud")
-
-[node name="MarginContainer" type="MarginContainer" parent="Root/Panel"]
-layout_mode = 2
-theme_override_constants/margin_left = 14
-theme_override_constants/margin_top = 12
-theme_override_constants/margin_right = 14
-theme_override_constants/margin_bottom = 12
-
-[node name="StatsGrid" type="GridContainer" parent="Root/Panel/MarginContainer"]
-layout_mode = 2
-theme_override_constants/h_separation = 18
-theme_override_constants/v_separation = 6
-columns = 2
-
-[node name="LabelPlayerName" type="Label" parent="Root/Panel/MarginContainer/StatsGrid"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 22
-text = "Player"
-
-[node name="LabelPlayerValue" type="Label" parent="Root/Panel/MarginContainer/StatsGrid"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_font_sizes/font_size = 22
-horizontal_alignment = 2
-text = "-"
-
-[node name="LabelAktionsmodusName" type="Label" parent="Root/Panel/MarginContainer/StatsGrid"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 22
-text = "Aktionsmodus"
-
-[node name="LabelAktionsmodusValue" type="Label" parent="Root/Panel/MarginContainer/StatsGrid"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_font_sizes/font_size = 22
-horizontal_alignment = 2
-text = "-"
-
-[node name="LabelFokusName" type="Label" parent="Root/Panel/MarginContainer/StatsGrid"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 22
-text = "Aufmerksamkeit"
-
-[node name="LabelFokusValue" type="Label" parent="Root/Panel/MarginContainer/StatsGrid"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_font_sizes/font_size = 22
-horizontal_alignment = 2
-text = "-"
-
-[node name="LabelRegelbindungName" type="Label" parent="Root/Panel/MarginContainer/StatsGrid"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 22
-text = "Regelbindung"
-
-[node name="LabelRegelbindungValue" type="Label" parent="Root/Panel/MarginContainer/StatsGrid"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_font_sizes/font_size = 22
-horizontal_alignment = 2
-text = "-"
-
-[node name="LabelInterpretationName" type="Label" parent="Root/Panel/MarginContainer/StatsGrid"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 22
-text = "Interpretation"
-
-[node name="LabelInterpretationValue" type="Label" parent="Root/Panel/MarginContainer/StatsGrid"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_font_sizes/font_size = 22
-horizontal_alignment = 2
-text = "-"
-
-[node name="ProjectPanel" type="PanelContainer" parent="Root"]
+[node name="ProjektPanel" type="PanelContainer" parent="Root"]
+custom_minimum_size = Vector2(408, 0)
 layout_mode = 1
 anchors_preset = 0
 offset_left = 12.0
@@ -115,63 +29,96 @@ offset_right = 420.0
 offset_bottom = 180.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_hud")
 
-[node name="MarginContainer" type="MarginContainer" parent="Root/ProjectPanel"]
+[node name="MarginContainer" type="MarginContainer" parent="Root/ProjektPanel"]
 layout_mode = 2
 theme_override_constants/margin_left = 14
 theme_override_constants/margin_top = 12
 theme_override_constants/margin_right = 14
 theme_override_constants/margin_bottom = 12
 
-[node name="ProjectGrid" type="GridContainer" parent="Root/ProjectPanel/MarginContainer"]
+[node name="Grid" type="GridContainer" parent="Root/ProjektPanel/MarginContainer"]
 layout_mode = 2
 theme_override_constants/h_separation = 18
 theme_override_constants/v_separation = 6
 columns = 2
 
-[node name="LabelProjektName" type="Label" parent="Root/ProjectPanel/MarginContainer/ProjectGrid"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 22
-text = "Projekt"
+[node name="SchulePanel" type="PanelContainer" parent="Root"]
+custom_minimum_size = Vector2(408, 0)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -420.0
+offset_top = 12.0
+offset_right = -12.0
+offset_bottom = 180.0
+grow_horizontal = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_hud")
 
-[node name="LabelProjektValue" type="Label" parent="Root/ProjectPanel/MarginContainer/ProjectGrid"]
+[node name="MarginContainer" type="MarginContainer" parent="Root/SchulePanel"]
 layout_mode = 2
-size_flags_horizontal = 3
-theme_override_font_sizes/font_size = 22
-horizontal_alignment = 2
-text = "-"
+theme_override_constants/margin_left = 14
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 14
+theme_override_constants/margin_bottom = 12
 
-[node name="LabelRessourcenbedarfName" type="Label" parent="Root/ProjectPanel/MarginContainer/ProjectGrid"]
+[node name="Grid" type="GridContainer" parent="Root/SchulePanel/MarginContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 22
-text = "Ressourcenbedarf"
+theme_override_constants/h_separation = 18
+theme_override_constants/v_separation = 6
+columns = 2
 
-[node name="LabelRessourcenbedarfValue" type="Label" parent="Root/ProjectPanel/MarginContainer/ProjectGrid"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_font_sizes/font_size = 22
-horizontal_alignment = 2
-text = "-"
+[node name="LeitungPanel" type="PanelContainer" parent="Root"]
+custom_minimum_size = Vector2(408, 0)
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 12.0
+offset_top = -180.0
+offset_right = 420.0
+offset_bottom = -12.0
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_hud")
 
-[node name="LabelAussenwirkungName" type="Label" parent="Root/ProjectPanel/MarginContainer/ProjectGrid"]
+[node name="MarginContainer" type="MarginContainer" parent="Root/LeitungPanel"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 22
-text = "Aussenwirkung"
+theme_override_constants/margin_left = 14
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 14
+theme_override_constants/margin_bottom = 12
 
-[node name="LabelAussenwirkungValue" type="Label" parent="Root/ProjectPanel/MarginContainer/ProjectGrid"]
+[node name="Grid" type="GridContainer" parent="Root/LeitungPanel/MarginContainer"]
 layout_mode = 2
-size_flags_horizontal = 3
-theme_override_font_sizes/font_size = 22
-horizontal_alignment = 2
-text = "-"
+theme_override_constants/h_separation = 18
+theme_override_constants/v_separation = 6
+columns = 2
 
-[node name="LabelTransformationName" type="Label" parent="Root/ProjectPanel/MarginContainer/ProjectGrid"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 22
-text = "Transformation"
+[node name="AgPanel" type="PanelContainer" parent="Root"]
+custom_minimum_size = Vector2(408, 0)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -420.0
+offset_top = -180.0
+offset_right = -12.0
+offset_bottom = -12.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_hud")
 
-[node name="LabelTransformationValue" type="Label" parent="Root/ProjectPanel/MarginContainer/ProjectGrid"]
+[node name="MarginContainer" type="MarginContainer" parent="Root/AgPanel"]
 layout_mode = 2
-size_flags_horizontal = 3
-theme_override_font_sizes/font_size = 22
-horizontal_alignment = 2
-text = "-"
+theme_override_constants/margin_left = 14
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 14
+theme_override_constants/margin_bottom = 12
+
+[node name="Grid" type="GridContainer" parent="Root/AgPanel/MarginContainer"]
+layout_mode = 2
+theme_override_constants/h_separation = 18
+theme_override_constants/v_separation = 6
+columns = 2

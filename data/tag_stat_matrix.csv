@@ -1,0 +1,15 @@
+tag,proj_sicht,proj_ress,proj_transf,proj_stab,sch_vert,sch_rep,sch_norm,sch_unt,lt_akt,lt_reg,lt_aufm_leist,lt_aufm_sicht,lt_aufm_foerd,lt_int_def,lt_int_pot,lt_int_str,ag_anerk,ag_bet,ag_komm,ag_abh
+adressieren_direkt,1,0,0,1,0,0,0,0,1,0,0,0,0,0,0,0,1,1,0,0
+adressieren_offen,0,0,0,0,0,0,0,0,-1,0,0,0,0,-1,2,-1,0,-1,1,0
+eingreifen_frueh,0,0,0,1,1,0,1,0,1,0,2,-1,-1,2,-1,-1,0,-1,-1,0
+eingreifen_spaet,0,0,0,-1,-1,0,0,0,-1,0,0,0,0,0,0,0,0,-1,1,0
+eingreifen_nicht,0,0,1,-1,-1,0,-1,0,-1,0,-1,-1,2,-1,2,-1,0,0,2,0
+framen_defizit,0,0,0,0,1,0,1,0,0,0,2,-1,-1,2,-1,-1,-1,-2,0,0
+framen_potenzial,0,0,1,0,0,0,0,0,0,0,-1,-1,2,-1,2,-1,1,1,0,0
+framen_struktur,0,0,2,0,-1,0,-1,-1,0,0,0,0,0,-1,-1,2,0,1,1,0
+unterstuetzen_aktiv,0,1,0,1,0,0,0,0,1,0,-1,-1,2,-1,2,-1,1,1,0,-1
+regelstrikt,0,0,0,1,2,1,1,1,0,1,0,0,0,0,0,0,0,-1,-1,0
+improvisieren,0,-1,0,-1,-1,0,-1,-1,0,-1,0,0,0,-1,-1,2,0,1,1,0
+prio_sichtbarkeit,2,-1,-1,0,1,2,0,1,1,0,-1,2,-1,0,0,0,-1,-1,0,0
+prio_transformation,-1,-1,2,-1,-1,0,-2,-1,0,0,0,0,0,-1,-1,2,1,0,1,0
+prio_mitglieder,0,0,1,2,0,0,0,0,0,0,-1,-1,2,-1,2,-1,2,2,0,-1

@@ -1,0 +1,4 @@
+avatar_id,proj_sicht,proj_ress,proj_transf,proj_stab,sch_vert,sch_rep,sch_norm,sch_unt,lt_akt,lt_reg,lt_aufm_leist,lt_aufm_sicht,lt_aufm_foerd,lt_int_def,lt_int_pot,lt_int_str,ag_anerk,ag_bet,ag_komm,ag_abh
+default,5,7,3,7,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5
+alter_mann,5,7,3,7,7,5,6,6,6,7,7,3,5,6,5,4,5,5,5,5
+frau_migration,5,7,3,7,4,5,6,4,5,5,3,5,8,3,7,5,5,5,5,5

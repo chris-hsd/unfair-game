@@ -1,0 +1,14 @@
+avatar_id,tag,stat_id,multiplier,note
+alter_mann,regelstrikt,sch_vert,1.2,bekraeftigt Erwartungshaltung
+alter_mann,improvisieren,sch_vert,-0.3,wirkt unprofessionell
+alter_mann,framen_potenzial,ag_bet,0.8,wird leicht naiv gelesen
+alter_mann,framen_struktur,sch_vert,1.2,wirkt erfahrungsbasiert
+alter_mann,prio_sichtbarkeit,sch_rep,1.2,Autoritaet verstaerkt
+frau_migration,regelstrikt,sch_vert,-0.5,Vorzeichen-Kippung
+frau_migration,improvisieren,sch_vert,1.5,Penalty verstaerkt
+frau_migration,framen_struktur,sch_vert,1.5,Strukturkritik unbequemer
+frau_migration,framen_struktur,sch_norm,1.3,
+frau_migration,prio_sichtbarkeit,sch_vert,-0.3,zu auffaellig
+frau_migration,prio_sichtbarkeit,sch_rep,0.6,kommt nicht voll an
+frau_migration,adressieren_direkt,ag_bet,1.4,hoehere Resonanz
+frau_migration,unterstuetzen_aktiv,ag_anerk,1.2,erfahrungsnah gelesen
