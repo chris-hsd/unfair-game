@@ -1,11 +1,18 @@
-Changes:
-- Added GameData autoload to load stats_schema, avatar_baselines, tag_stat_matrix, and avatar_overrides CSVs at runtime.
-- Reworked HUD into four schema-driven corner stat panels: projekt, schule, leitung, and ag_mitglieder.
-- HUD now reads labels and current values from GameData instead of hardcoded Personality/Project resources.
-- GameState keeps the default CSV baseline active until character selection, then switches to the selected avatar row.
-- Updated character IDs to match CSV avatar IDs: alter_mann and frau_migration.
-- Included the current intro scene layout changes.
+Changed:
+
+- Added GameData autoload in Game/project.godot:20.
+- Added runtime CSV loader and stat store in Game/scripts/game_data.gd:1.
+- Reworked HUD logic in Game/scenes/hud.gd:1 to build all four stat corners from GameData.
+- Updated Game/scenes/hud.tscn:1 to four corner panels: projekt, schule, leitung, ag_mitglieder.
+- Updated GameState so the CSV default row stays active until a character is selected, then switches via GameData.set_avatar(...): Game/scripts/game_state.gd:11.
+- Changed character IDs to match CSV avatar rows:
+  - old_man -> alter_mann
+  - young_woman -> frau_migration
 
 Validation:
-- Loaded res://scenes/game.tscn with Godot 4.6 headless.
-- Only remaining output was the pre-existing invalid UID fallback warning for the old man sprite resource.
+
+- Ran Godot 4.6 headless against res://scenes/game.tscn.
+- Ran Godot 4.6 headless against res://scenes/character_select.tscn.
+- Both load without new script or scene errors.
+
+Residual warning: Godot reports an existing invalid UID on the old man sprite frame resource and falls back to the text path. I left that alone because it is unrelated to the HUD/data change.
