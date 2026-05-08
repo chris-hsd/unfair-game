@@ -1,0 +1,11 @@
+Changes:
+- Added GameData autoload to load stats_schema, avatar_baselines, tag_stat_matrix, and avatar_overrides CSVs at runtime.
+- Reworked HUD into four schema-driven corner stat panels: projekt, schule, leitung, and ag_mitglieder.
+- HUD now reads labels and current values from GameData instead of hardcoded Personality/Project resources.
+- GameState keeps the default CSV baseline active until character selection, then switches to the selected avatar row.
+- Updated character IDs to match CSV avatar IDs: alter_mann and frau_migration.
+- Included the current intro scene layout changes.
+
+Validation:
+- Loaded res://scenes/game.tscn with Godot 4.6 headless.
+- Only remaining output was the pre-existing invalid UID fallback warning for the old man sprite resource.
