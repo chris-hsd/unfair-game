@@ -8,6 +8,7 @@ signal focus_changed
 enum Mode { AVATAR, STORY }
 enum Focus { STORY, OPTIONS }
 
+const EffectEngineScript := preload("res://scripts/effect_engine.gd")
 const STORY_PATHS: Array[String] = [
 	"res://stories/01_kennenlernen.json",
 	"res://stories/02_themenwahl.json",
@@ -103,6 +104,25 @@ func get_selected_option() -> Dictionary:
 		return {}
 	var option = options[selected_option_index]
 	return option if option is Dictionary else {}
+
+func apply_selected_option_effects() -> Dictionary:
+	var option := get_selected_option()
+	if option.is_empty():
+		return {}
+	var option_tags = option.get("option_tags", {})
+	if not (option_tags is Dictionary):
+		push_warning("Selected option has no valid option_tags")
+		return {}
+	var deltas: Dictionary = EffectEngineScript.compute_deltas(
+		option_tags,
+		GameData.get_current_avatar_id(),
+		GameData.schema,
+		GameData.matrix,
+		GameData.overrides,
+		GameData.stats
+	)
+	GameData.apply_deltas(deltas)
+	return deltas
 
 func _load_json_file(path: String) -> Dictionary:
 	var file := FileAccess.open(path, FileAccess.READ)

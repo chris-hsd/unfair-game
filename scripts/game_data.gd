@@ -43,14 +43,20 @@ func get_stat_label_suffix(stat_id: String) -> String:
 func get_stat_def(stat_id: String) -> Dictionary:
 	return _schema_by_id.get(stat_id, {})
 
-func get_stat_value(stat_id: String) -> float:
+func get_stat_internal(stat_id: String) -> float:
 	return float(stats.get(stat_id, 0.0))
+
+func get_stat_display(stat_id: String) -> int:
+	var stat_def := get_stat_def(stat_id)
+	var min_value := float(stat_def.get("scale_min", 1.0))
+	var max_value := float(stat_def.get("scale_max", 10.0))
+	return int(round(clamp(get_stat_internal(stat_id), min_value, max_value)))
 
 func get_highest_label(stat_ids: Array[String]) -> String:
 	var best_id := ""
 	var best_value := -INF
 	for stat_id in stat_ids:
-		var value := get_stat_value(stat_id)
+		var value := get_stat_internal(stat_id)
 		if best_id == "" or value > best_value:
 			best_id = stat_id
 			best_value = value
@@ -60,26 +66,22 @@ func get_highest_label_suffix(stat_ids: Array[String]) -> String:
 	var best_id := ""
 	var best_value := -INF
 	for stat_id in stat_ids:
-		var value := get_stat_value(stat_id)
+		var value := get_stat_internal(stat_id)
 		if best_id == "" or value > best_value:
 			best_id = stat_id
 			best_value = value
 	return get_stat_label_suffix(best_id) if best_id != "" else "-"
 
-func apply_tag(tag: String) -> void:
-	if not matrix.has(tag):
-		push_warning("Unknown action tag: %s" % tag)
-		return
-	for stat_id in matrix[tag]:
-		var delta := float(matrix[tag][stat_id])
+func apply_deltas(deltas: Dictionary) -> void:
+	for stat_key in deltas.keys():
+		var stat_id := String(stat_key)
+		if not _schema_by_id.has(stat_id):
+			push_warning("Ignoring delta for unknown stat: %s" % stat_id)
+			continue
+		var delta := float(deltas[stat_key])
 		if is_zero_approx(delta):
 			continue
-		var stat_def := get_stat_def(stat_id)
-		delta *= float(stat_def.get("magnitude_factor", 1.0))
-		delta *= _get_override_multiplier(_current_avatar_id, tag, stat_id)
-		var min_value := float(stat_def.get("scale_min", 1.0))
-		var max_value := float(stat_def.get("scale_max", 10.0))
-		stats[stat_id] = clamp(get_stat_value(stat_id) + delta, min_value, max_value)
+		stats[stat_id] = get_stat_internal(stat_id) + delta
 	stats_changed.emit()
 
 func _load_schema() -> void:
@@ -136,12 +138,6 @@ func _load_overrides() -> void:
 			"multiplier": float(row.get("multiplier", 1.0)),
 			"note": String(row.get("note", "")),
 		})
-
-func _get_override_multiplier(avatar_id: String, tag: String, stat_id: String) -> float:
-	for row in overrides:
-		if row["avatar_id"] == avatar_id and row["tag"] == tag and row["stat_id"] == stat_id:
-			return float(row["multiplier"])
-	return 1.0
 
 func _read_csv_dicts(path: String) -> Array[Dictionary]:
 	var file := FileAccess.open(path, FileAccess.READ)

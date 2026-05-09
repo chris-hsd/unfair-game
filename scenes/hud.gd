@@ -82,9 +82,9 @@ func update_stats() -> void:
 	if get_node_or_null("/root/GameData") == null:
 		return
 	for stat_id in PROJEKT_STATS + SCHULE_STATS + AG_STATS:
-		_set_value(stat_id, _format_number(GameData.get_stat_value(stat_id)))
-	_set_value("lt_akt", _format_number(GameData.get_stat_value("lt_akt")))
-	_set_value("lt_reg", _format_number(GameData.get_stat_value("lt_reg")))
+		_set_value(stat_id, str(GameData.get_stat_display(stat_id)))
+	_set_value("lt_akt", str(GameData.get_stat_display("lt_akt")))
+	_set_value("lt_reg", str(GameData.get_stat_display("lt_reg")))
 	_set_value("aufmerksamkeit", GameData.get_highest_label_suffix(AUFMERKSAMKEIT_STATS))
 	_set_value("interpretation", GameData.get_highest_label_suffix(INTERPRETATION_STATS))
 
@@ -198,6 +198,7 @@ func _confirm_or_continue() -> void:
 		return
 	if StoryState.get_options().is_empty():
 		return
+	StoryState.apply_selected_option_effects()
 	_is_confirming_decision = true
 	decision_message.text = "Entscheidung getroffen"
 	decision_message.visible = true
