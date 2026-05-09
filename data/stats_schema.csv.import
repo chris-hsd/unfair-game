@@ -2,7 +2,7 @@
 
 importer="csv_translation"
 type="Translation"
-uid="uid://b2wctfwr1oijn"
+uid="uid://ble3g5daty8m"
 
 [deps]
 
@@ -16,4 +16,4 @@ dest_files=["res://data/stats_schema.corner.translation", "res://data/stats_sche
 compress=1
 delimiter=0
 unescape_keys=false
-unescape_translations=true
+unescape_translations=false

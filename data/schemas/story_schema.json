@@ -1,0 +1,156 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://unfair-game/schemas/scene.json",
+  "title": "Unfair Scene",
+  "description": "Eine Szene im Spiel Unfair: Story Hook, Optionen mit Tag-Gewichten, optionale Stil-Varianten und Media.",
+  "type": "object",
+  "required": ["scene_id", "scene_title", "scene_context", "story_hook", "options"],
+  "properties": {
+    "scene_id": {
+      "type": "string",
+      "pattern": "^[0-9]{2}_[a-z_]+$",
+      "description": "Eindeutige ID, Format: 'NN_snake_name', z.B. '01_kennenlernen'"
+    },
+    "scene_title": {
+      "type": "string",
+      "description": "Kurzer Titel der Szene (fuer Authoring/Debug, nicht im Spiel angezeigt)"
+    },
+    "scene_themes": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Inhaltliche Tags der Szene fuer didaktische Kuration. Beispiele: 'kennenlernen', 'fairness', 'konflikt'"
+    },
+    "scene_context": {
+      "type": "string",
+      "description": "Authoring-Notiz: Aktionsnummer, erwarteter State, etc."
+    },
+    "scene_media": {
+      "type": "object",
+      "properties": {
+        "background": { "type": "string", "description": "Pfad zum Hintergrundbild" },
+        "ambient_music": { "type": "string", "description": "Pfad zur Atmo-Musik (loop)" },
+        "filter": { "type": "string", "description": "Optischer Filter, z.B. 'leicht_kuehl'" }
+      },
+      "additionalProperties": false
+    },
+    "scene_avatar_variants": {
+      "type": "array",
+      "description": "Avatar-spezifische Erweiterungen (Procedural Friction). Leer fuer den Default-Fall.",
+      "items": {
+        "type": "object",
+        "required": ["avatar_id"],
+        "properties": {
+          "avatar_id": { "type": "string" },
+          "extra_options": { "type": "array" },
+          "condition": { "$ref": "#/$defs/condition" }
+        }
+      }
+    },
+
+    "story_hook": {
+      "type": "string",
+      "description": "Erzaehler-Text in 2. Person, max ca. 100 Woerter. Sinnliche Details vor emotionalen Etiketten."
+    },
+    "story_hook_variants": {
+      "type": "array",
+      "description": "Stil-abhaengige Alternativen zum Standard-Hook. Engine nimmt erste passende Variante.",
+      "items": { "$ref": "#/$defs/variant" }
+    },
+    "story_hook_media": {
+      "type": "object",
+      "properties": {
+        "sting": { "type": "string", "description": "Kurzer Sound beim Einblenden" },
+        "sprite_animation": { "type": "string", "description": "Animation waehrend Hook gelesen wird" }
+      },
+      "additionalProperties": false
+    },
+
+    "options": {
+      "type": "array",
+      "minItems": 2,
+      "maxItems": 5,
+      "items": { "$ref": "#/$defs/option" }
+    }
+  },
+  "additionalProperties": false,
+
+  "$defs": {
+    "option": {
+      "type": "object",
+      "required": ["option_id", "option_text", "option_tags"],
+      "properties": {
+        "option_id": {
+          "type": "string",
+          "pattern": "^opt_[a-z_]+$",
+          "description": "Format: 'opt_snake_name'"
+        },
+        "option_text": {
+          "type": "string",
+          "description": "Was die Spielerin als Auswahl sieht."
+        },
+        "option_text_variants": {
+          "type": "array",
+          "description": "Stil-abhaengige Alternativen. Engine nimmt erste passende.",
+          "items": { "$ref": "#/$defs/variant" }
+        },
+        "option_tags": {
+          "type": "object",
+          "description": "Tag-Gewichte (Intensitaeten, nicht Anteile). Pro Tag 0.0-1.0, Summe typisch 1.0-2.5.",
+          "patternProperties": {
+            "^[a-z_]+$": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            }
+          },
+          "additionalProperties": false,
+          "minProperties": 1
+        },
+        "option_media": {
+          "type": "object",
+          "properties": {
+            "sound": { "type": "string", "description": "Konsequenz-Sound nach Auswahl" },
+            "sprite_animation": { "type": "string", "description": "Animation als Folge der Wahl" }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+
+    "variant": {
+      "type": "object",
+      "description": "Stil-abhaengige Alternative zum Standard-Text. Mindestens eines von 'avatar_id' oder 'condition' ist erforderlich; sind beide gesetzt, gelten sie als UND-verknuepft.",
+      "required": ["text"],
+      "properties": {
+        "avatar_id": {
+          "type": "string",
+          "description": "Wenn gesetzt, greift die Variante nur fuer den genannten Avatar."
+        },
+        "condition": {
+          "$ref": "#/$defs/condition",
+          "description": "Wenn gesetzt, greift die Variante nur wenn alle Stat-Vergleiche erfuellt sind."
+        },
+        "text": { "type": "string" }
+      },
+      "additionalProperties": false,
+      "anyOf": [
+        { "required": ["condition"] },
+        { "required": ["avatar_id"] }
+      ]
+    },
+
+    "condition": {
+      "type": "object",
+      "description": "Stat-Vergleiche, mehrere Felder = UND-Verknuepfung. Operatoren: >, <, >=, <=, ==",
+      "patternProperties": {
+        "^[a-z_]+$": {
+          "type": "string",
+          "pattern": "^(>=|<=|==|>|<)[0-9.]+$"
+        }
+      },
+      "additionalProperties": false,
+      "minProperties": 1
+    }
+  }
+}

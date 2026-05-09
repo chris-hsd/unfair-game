@@ -2,7 +2,7 @@
 
 importer="csv_translation"
 type="Translation"
-uid="uid://cshx4uk0r8uu6"
+uid="uid://bxrmey6iw8bac"
 
 [deps]
 
@@ -16,4 +16,4 @@ dest_files=["res://data/avatar_overrides.tag.translation", "res://data/avatar_ov
 compress=1
 delimiter=0
 unescape_keys=false
-unescape_translations=true
+unescape_translations=false

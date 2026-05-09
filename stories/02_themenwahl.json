@@ -1,0 +1,71 @@
+{
+  "scene_id": "02_themenwahl",
+  "scene_title": "Drei aus acht",
+  "scene_themes": ["prioritisierung", "fairness", "beteiligung"],
+  "scene_context": "Aktion 2 von 8. Erste Priorisierung. Stats nach erstem Treffen moeglicherweise leicht verschoben.",
+  "scene_media": {},
+  "scene_avatar_variants": [],
+
+  "story_hook": "Zweite Sitzung, drei Wochen nach dem Auftakt. An der Tafel haengen acht Themen: weniger Verpackung im Kiosk, lokale Produkte in der Kantine, Lastenrad fuer Schulbesorgungen, Schulgarten, Energie sparen, Reparatur-Cafe, Kleidertauschmarkt, bessere Muelltrennung. Du spuerst, wie der Raum enger wird — manche wollen alles auf einmal, andere schweigen. Drei davon werden es schaffen. Fair soll es zugehen, das hast du angekuendigt. Jetzt schauen sie zu dir. Wie schlaegst du vor, dass ihr auswaehlt?",
+  "story_hook_variants": [
+    {
+      "condition": { "lt_reg": ">6" },
+      "text": "Zweite Sitzung, drei Wochen nach dem Auftakt. Du hast die acht Themen sauber sortiert an die Tafel geschrieben: weniger Verpackung im Kiosk, lokale Produkte in der Kantine, Lastenrad fuer Schulbesorgungen, Schulgarten, Energie sparen, Reparatur-Cafe, Kleidertauschmarkt, bessere Muelltrennung. Drei davon werden es schaffen — fair soll es zugehen, das hast du angekuendigt. Jetzt schauen sie zu dir."
+    }
+  ],
+  "story_hook_media": {},
+
+  "options": [
+    {
+      "option_id": "opt_silent_voting",
+      "option_text": "Jede:r bekommt drei Klebepunkte. Verteilt sie still auf die Themen, die euch am wichtigsten sind. Nach drei Minuten zaehlen wir.",
+      "option_text_variants": [
+        {
+          "condition": { "lt_reg": ">6" },
+          "text": "Wie immer ganz strukturiert: drei Klebepunkte pro Person, still verteilen, nach drei Minuten zaehlen wir."
+        }
+      ],
+      "option_tags": {
+        "regelstrikt": 0.8,
+        "prio_mitglieder": 0.5,
+        "framen_struktur": 0.3
+      },
+      "option_media": {}
+    },
+    {
+      "option_id": "opt_runde_warum",
+      "option_text": "Wir gehen die Runde einmal durch. Jede:r sagt kurz: welches Thema ist dir am wichtigsten und warum? Danach schauen wir, wo wir landen.",
+      "option_text_variants": [],
+      "option_tags": {
+        "adressieren_offen": 0.7,
+        "framen_potenzial": 0.6,
+        "prio_mitglieder": 0.6,
+        "eingreifen_frueh": 0.3
+      },
+      "option_media": {}
+    },
+    {
+      "option_id": "opt_clustern_zuerst",
+      "option_text": "Mir faellt auf, manche Themen gehen ja zusammen — Kantine, Verpackung, Muelltrennung sind alle was anderes als Lastenrad oder Reparatur-Cafe. Lass uns erstmal in Gruppen sortieren.",
+      "option_text_variants": [],
+      "option_tags": {
+        "framen_struktur": 0.8,
+        "regelstrikt": 0.5,
+        "eingreifen_frueh": 0.5
+      },
+      "option_media": {}
+    },
+    {
+      "option_id": "opt_uebergeben",
+      "option_text": "Ich glaube, ihr kriegt das gut hin. Macht das mal unter euch aus, ich hoere nur zu. Sagt mir Bescheid, wenn ihr drei habt.",
+      "option_text_variants": [],
+      "option_tags": {
+        "eingreifen_nicht": 0.9,
+        "prio_mitglieder": 0.5,
+        "framen_potenzial": 0.4,
+        "adressieren_offen": 0.4
+      },
+      "option_media": {}
+    }
+  ]
+}

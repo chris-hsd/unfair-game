@@ -2,7 +2,7 @@
 
 importer="csv_translation"
 type="Translation"
-uid="uid://8huh3p7rvph3"
+uid="uid://xlkuo450mv44"
 
 [deps]
 
@@ -16,4 +16,4 @@ dest_files=["res://data/tag_stat_matrix.proj.translation", "res://data/tag_stat_
 compress=1
 delimiter=0
 unescape_keys=false
-unescape_translations=true
+unescape_translations=false

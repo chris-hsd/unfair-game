@@ -2,7 +2,7 @@
 
 importer="csv_translation"
 type="Translation"
-uid="uid://dwgf1t34ief8u"
+uid="uid://dnanjb3e4cx8p"
 
 [deps]
 
@@ -16,4 +16,4 @@ dest_files=["res://data/avatar_baselines.proj.translation", "res://data/avatar_b
 compress=1
 delimiter=0
 unescape_keys=false
-unescape_translations=true
+unescape_translations=false

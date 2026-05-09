@@ -26,8 +26,8 @@ func update_stats() -> void:
 		_set_value(stat_id, _format_number(GameData.get_stat_value(stat_id)))
 	_set_value("lt_akt", _format_number(GameData.get_stat_value("lt_akt")))
 	_set_value("lt_reg", _format_number(GameData.get_stat_value("lt_reg")))
-	_set_value("aufmerksamkeit", GameData.get_highest_label(AUFMERKSAMKEIT_STATS))
-	_set_value("interpretation", GameData.get_highest_label(INTERPRETATION_STATS))
+	_set_value("aufmerksamkeit", GameData.get_highest_label_suffix(AUFMERKSAMKEIT_STATS))
+	_set_value("interpretation", GameData.get_highest_label_suffix(INTERPRETATION_STATS))
 
 func _build_rows() -> void:
 	_value_labels.clear()

@@ -37,6 +37,9 @@ func get_stat_label(stat_id: String) -> String:
 	var stat_def := get_stat_def(stat_id)
 	return String(stat_def.get("name_de", stat_id))
 
+func get_stat_label_suffix(stat_id: String) -> String:
+	return get_stat_label(stat_id).get_slice("/", 1) if get_stat_label(stat_id).contains("/") else get_stat_label(stat_id)
+
 func get_stat_def(stat_id: String) -> Dictionary:
 	return _schema_by_id.get(stat_id, {})
 
@@ -52,6 +55,16 @@ func get_highest_label(stat_ids: Array[String]) -> String:
 			best_id = stat_id
 			best_value = value
 	return get_stat_label(best_id) if best_id != "" else "-"
+
+func get_highest_label_suffix(stat_ids: Array[String]) -> String:
+	var best_id := ""
+	var best_value := -INF
+	for stat_id in stat_ids:
+		var value := get_stat_value(stat_id)
+		if best_id == "" or value > best_value:
+			best_id = stat_id
+			best_value = value
+	return get_stat_label_suffix(best_id) if best_id != "" else "-"
 
 func apply_tag(tag: String) -> void:
 	if not matrix.has(tag):

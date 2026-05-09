@@ -9,40 +9,41 @@ corner_radius_top_right = 6
 corner_radius_bottom_right = 6
 corner_radius_bottom_left = 6
 
-[node name="HUD" type="CanvasLayer"]
+[node name="HUD" type="CanvasLayer" unique_id=1797580751]
 script = ExtResource("1_hud")
 
-[node name="Root" type="Control" parent="."]
+[node name="Root" type="Control" parent="." unique_id=1951136330]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 mouse_filter = 2
 
-[node name="ProjektPanel" type="PanelContainer" parent="Root"]
+[node name="ProjektPanel" type="PanelContainer" parent="Root" unique_id=820447875]
 custom_minimum_size = Vector2(408, 0)
 layout_mode = 1
-anchors_preset = 0
 offset_left = 12.0
 offset_top = 12.0
 offset_right = 420.0
 offset_bottom = 180.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_hud")
 
-[node name="MarginContainer" type="MarginContainer" parent="Root/ProjektPanel"]
+[node name="MarginContainer" type="MarginContainer" parent="Root/ProjektPanel" unique_id=2012253115]
 layout_mode = 2
 theme_override_constants/margin_left = 14
 theme_override_constants/margin_top = 12
 theme_override_constants/margin_right = 14
 theme_override_constants/margin_bottom = 12
 
-[node name="Grid" type="GridContainer" parent="Root/ProjektPanel/MarginContainer"]
+[node name="Grid" type="GridContainer" parent="Root/ProjektPanel/MarginContainer" unique_id=549393656]
 layout_mode = 2
 theme_override_constants/h_separation = 18
 theme_override_constants/v_separation = 6
 columns = 2
 
-[node name="SchulePanel" type="PanelContainer" parent="Root"]
+[node name="SchulePanel" type="PanelContainer" parent="Root" unique_id=897425094]
 custom_minimum_size = Vector2(408, 0)
 layout_mode = 1
 anchors_preset = 1
@@ -55,20 +56,20 @@ offset_bottom = 180.0
 grow_horizontal = 0
 theme_override_styles/panel = SubResource("StyleBoxFlat_hud")
 
-[node name="MarginContainer" type="MarginContainer" parent="Root/SchulePanel"]
+[node name="MarginContainer" type="MarginContainer" parent="Root/SchulePanel" unique_id=2111534092]
 layout_mode = 2
 theme_override_constants/margin_left = 14
 theme_override_constants/margin_top = 12
 theme_override_constants/margin_right = 14
 theme_override_constants/margin_bottom = 12
 
-[node name="Grid" type="GridContainer" parent="Root/SchulePanel/MarginContainer"]
+[node name="Grid" type="GridContainer" parent="Root/SchulePanel/MarginContainer" unique_id=1962458533]
 layout_mode = 2
 theme_override_constants/h_separation = 18
 theme_override_constants/v_separation = 6
 columns = 2
 
-[node name="LeitungPanel" type="PanelContainer" parent="Root"]
+[node name="LeitungPanel" type="PanelContainer" parent="Root" unique_id=774521761]
 custom_minimum_size = Vector2(408, 0)
 layout_mode = 1
 anchors_preset = 2
@@ -81,20 +82,20 @@ offset_bottom = -12.0
 grow_vertical = 0
 theme_override_styles/panel = SubResource("StyleBoxFlat_hud")
 
-[node name="MarginContainer" type="MarginContainer" parent="Root/LeitungPanel"]
+[node name="MarginContainer" type="MarginContainer" parent="Root/LeitungPanel" unique_id=1801585592]
 layout_mode = 2
 theme_override_constants/margin_left = 14
 theme_override_constants/margin_top = 12
 theme_override_constants/margin_right = 14
 theme_override_constants/margin_bottom = 12
 
-[node name="Grid" type="GridContainer" parent="Root/LeitungPanel/MarginContainer"]
+[node name="Grid" type="GridContainer" parent="Root/LeitungPanel/MarginContainer" unique_id=2111078829]
 layout_mode = 2
 theme_override_constants/h_separation = 18
 theme_override_constants/v_separation = 6
 columns = 2
 
-[node name="AgPanel" type="PanelContainer" parent="Root"]
+[node name="AgPanel" type="PanelContainer" parent="Root" unique_id=1500722330]
 custom_minimum_size = Vector2(408, 0)
 layout_mode = 1
 anchors_preset = 3
@@ -110,14 +111,14 @@ grow_horizontal = 0
 grow_vertical = 0
 theme_override_styles/panel = SubResource("StyleBoxFlat_hud")
 
-[node name="MarginContainer" type="MarginContainer" parent="Root/AgPanel"]
+[node name="MarginContainer" type="MarginContainer" parent="Root/AgPanel" unique_id=156665660]
 layout_mode = 2
 theme_override_constants/margin_left = 14
 theme_override_constants/margin_top = 12
 theme_override_constants/margin_right = 14
 theme_override_constants/margin_bottom = 12
 
-[node name="Grid" type="GridContainer" parent="Root/AgPanel/MarginContainer"]
+[node name="Grid" type="GridContainer" parent="Root/AgPanel/MarginContainer" unique_id=1651346908]
 layout_mode = 2
 theme_override_constants/h_separation = 18
 theme_override_constants/v_separation = 6

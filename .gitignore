@@ -1,3 +1,12 @@
 # Godot 4+ specific ignores
 .godot/
 /android/
+
+# Local tooling/workspace files
+.claude/
+.DS_Store
+
+# Generated/imported data artifacts
+*.translation
+data/*.xlsx
+data/~$*

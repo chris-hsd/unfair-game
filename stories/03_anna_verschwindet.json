@@ -1,0 +1,52 @@
+{
+  "scene_id": "03_anna_verschwindet",
+  "scene_title": "Anna wird leiser",
+  "scene_themes": ["beteiligung", "stille_stimmen", "wahrnehmung"],
+  "scene_context": "Aktion 3 von 8. Direkt nach der Themenwahl. Annas Verschwinden ist strukturelles Nicht-Ankommen-im-Format, nicht Frust nach Niederlage — sie war nicht aktiv an der Abstimmung beteiligt. EINSTIEGSPUNKT FUER PER-MITGLIED-TRACKING: Anna ist die erste namentlich getrackte AG-Mitglieds-Identitaet. Ab hier sollten ihre States separat verfolgt werden, sobald die per-Mitglied-Differenzierung implementiert ist.",
+  "scene_media": {},
+  "scene_avatar_variants": [],
+
+  "story_hook": "Die drei Themen stehen. Lastenrad-Transport, Reparatur-Cafe, weniger Verpackung im Kiosk. Die Gruppe ist schon weiter — jemand fragt nach Snacks, einer schlaegt einen Termin fuer naechste Woche vor. Du merkst, wie deine Aufmerksamkeit haengenbleibt: Anna hat seit der Abstimmung kein Wort mehr gesagt. Sie sitzt halb abgewandt, Haende im Pulli. Anna ist neu seit Schuljahresbeginn, du weisst von der Klassenleitung dass sie sich fuer Klima interessiert — sie hat darueber einen Text geschrieben. Heute hast du sie noch nicht gehoert.",
+  "story_hook_variants": [],
+  "story_hook_media": {},
+
+  "options": [
+    {
+      "option_id": "opt_anna_direkt",
+      "option_text": "Anna, du hast noch nichts gesagt — wie siehst du das?",
+      "option_text_variants": [],
+      "option_tags": {
+        "adressieren_direkt": 0.8,
+        "eingreifen_frueh": 0.5,
+        "prio_mitglieder": 0.4
+      },
+      "option_media": {}
+    },
+    {
+      "option_id": "opt_laufen_lassen",
+      "option_text": "(Nichts sagen. Manchmal braucht es Zeit. Du laesst sie fuer heute.)",
+      "option_text_variants": [],
+      "option_tags": {
+        "eingreifen_nicht": 0.9,
+        "framen_potenzial": 0.4
+      },
+      "option_media": {}
+    },
+    {
+      "option_id": "opt_safe_space",
+      "option_text": "Wartet mal kurz — bevor wir weitermachen: schreibt jede:r fuer sich auf eine Karte, was euch bei diesen drei Themen am wichtigsten ist. Drei Minuten, dann sammeln wir.",
+      "option_text_variants": [
+        {
+          "avatar_id": "frau_migration",
+          "text": "Wartet mal kurz — ich glaube das hilft uns allen, bevor wir weitermachen. Schreibt jede:r fuer sich auf eine Karte, was euch bei diesen drei Themen am wichtigsten ist. Drei Minuten, dann sammeln wir."
+        }
+      ],
+      "option_tags": {
+        "framen_struktur": 0.7,
+        "prio_mitglieder": 0.7,
+        "adressieren_offen": 0.5
+      },
+      "option_media": {}
+    }
+  ]
+}
