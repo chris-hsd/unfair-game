@@ -11,50 +11,50 @@
   "story_hook_media": {},
 
   "options": [
-    {
-      "option_id": "opt_strukturiert_einsteigen",
-      "option_text": "Schoen dass ihr da seid. Ich schlage vor, wir machen erstmal eine kurze Vorstellungsrunde — Name, Klasse, und warum ihr euch eingetragen habt.",
-      "option_text_variants": [],
-      "option_tags": {
-        "regelstrikt": 0.7,
-        "adressieren_direkt": 0.5,
-        "eingreifen_frueh": 0.4
-      },
-      "option_media": {}
-    },
-    {
-      "option_id": "opt_offen_fragen",
-      "option_text": "Bevor wir loslegen — was wuerdet ihr euch wuenschen, dass diese AG hier wird? Ich hoere erstmal zu.",
-      "option_text_variants": [],
-      "option_tags": {
-        "adressieren_offen": 0.9,
-        "framen_potenzial": 0.7,
-        "prio_mitglieder": 0.5
-      },
-      "option_media": {}
-    },
-    {
-      "option_id": "opt_thema_setzen",
-      "option_text": "Nachhaltigkeit ist ein riesiges Thema. Damit wir nicht nur reden, hab ich drei konkrete Projektideen mitgebracht, die wir in der Schule umsetzen koennten.",
-      "option_text_variants": [],
-      "option_tags": {
-        "regelstrikt": 0.6,
-        "prio_transformation": 0.7,
-        "eingreifen_frueh": 0.5
-      },
-      "option_media": {}
-    },
-    {
-      "option_id": "opt_kleine_uebung",
-      "option_text": "Stellt euch mal so im Raum auf, dass ihr ein Spektrum bildet — links: 'Klimakrise nervt mich kaum', rechts: 'macht mir richtig Angst'. Schauen wir, wo wir alle stehen.",
-      "option_text_variants": [],
-      "option_tags": {
-        "improvisieren": 0.8,
-        "framen_struktur": 0.5,
-        "adressieren_offen": 0.6,
-        "prio_mitglieder": 0.4
-      },
-      "option_media": {}
-    }
+	{
+	  "option_id": "opt_strukturiert_einsteigen",
+	  "option_text": "Schoen dass ihr da seid. Ich schlage vor, wir machen erstmal eine kurze Vorstellungsrunde — Name, Klasse, und warum ihr euch eingetragen habt.",
+	  "option_text_variants": [],
+	  "option_tags": {
+		"regelstrikt": 0.7,
+		"adressieren_direkt": 0.5,
+		"eingreifen_frueh": 0.4
+	  },
+	  "option_media": {}
+	},
+	{
+	  "option_id": "opt_offen_fragen",
+	  "option_text": "Bevor wir loslegen — was wuerdet ihr euch wuenschen, dass diese AG hier wird? Ich hoere erstmal zu.",
+	  "option_text_variants": [],
+	  "option_tags": {
+		"adressieren_offen": 0.9,
+		"framen_potenzial": 0.7,
+		"prio_mitglieder": 0.5
+	  },
+	  "option_media": {}
+	},
+	{
+	  "option_id": "opt_thema_setzen",
+	  "option_text": "Nachhaltigkeit ist ein riesiges Thema. Damit wir nicht nur reden, hab ich drei konkrete Projektideen mitgebracht, die wir in der Schule umsetzen koennten.",
+	  "option_text_variants": [],
+	  "option_tags": {
+		"regelstrikt": 0.6,
+		"prio_transformation": 0.7,
+		"eingreifen_frueh": 0.5
+	  },
+	  "option_media": {}
+	},
+	{
+	  "option_id": "opt_kleine_uebung",
+	  "option_text": "Stellt euch mal so im Raum auf, dass ihr ein Spektrum bildet — links: 'Klimakrise nervt mich kaum', rechts: 'macht mir richtig Angst'. Schauen wir, wo wir alle stehen.",
+	  "option_text_variants": [],
+	  "option_tags": {
+		"improvisieren": 0.8,
+		"framen_struktur": 0.5,
+		"adressieren_offen": 0.6,
+		"prio_mitglieder": 0.4
+	  },
+	  "option_media": {}
+	}
   ]
 }

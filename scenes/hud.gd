@@ -6,12 +6,14 @@ const AG_STATS: Array[String] = ["ag_anerk", "ag_bet", "ag_komm", "ag_abh"]
 const AUFMERKSAMKEIT_STATS: Array[String] = ["lt_aufm_leist", "lt_aufm_sicht", "lt_aufm_foerd"]
 const INTERPRETATION_STATS: Array[String] = ["lt_int_def", "lt_int_pot", "lt_int_str"]
 const STORY_PAGE_CHAR_LIMIT := 260
+const CORNER_TEXT_COLOR := Color(0.058824, 0.298039, 0.458824, 1.0)
 
-@onready var projekt_grid: GridContainer = $Root/ProjektPanel/MarginContainer/Grid
-@onready var schule_grid: GridContainer = $Root/SchulePanel/MarginContainer/Grid
-@onready var leitung_grid: GridContainer = $Root/LeitungPanel/MarginContainer/Grid
-@onready var ag_grid: GridContainer = $Root/AgPanel/MarginContainer/Grid
+@onready var projekt_grid: GridContainer = $Root/ProjektPanel/MarginContainer/ProjektLayout/Grid
+@onready var schule_grid: GridContainer = $Root/SchulePanel/MarginContainer/SchuleLayout/Grid
+@onready var leitung_grid: GridContainer = $Root/LeitungPanel/MarginContainer/LeitungLayout/Grid
+@onready var ag_grid: GridContainer = $Root/AgPanel/MarginContainer/AgLayout/Grid
 @onready var story_panel: PanelContainer = $Root/StoryPanel
+@onready var story_title: Label = $Root/StoryPanel/MarginContainer/StoryLayout/Title
 @onready var story_text: Label = $Root/StoryPanel/MarginContainer/StoryLayout/StoryText
 @onready var story_hint: Label = $Root/StoryPanel/MarginContainer/StoryLayout/StoryHint
 @onready var options_panel: PanelContainer = $Root/OptionsPanel
@@ -22,8 +24,15 @@ const STORY_PAGE_CHAR_LIMIT := 260
 var _value_labels: Dictionary = {}
 var _story_pages: Array[String] = []
 var _is_confirming_decision := false
+var _selected_option_style: StyleBoxFlat
 
 func _ready() -> void:
+	_selected_option_style = StyleBoxFlat.new()
+	_selected_option_style.bg_color = Color.BLACK
+	_selected_option_style.corner_radius_top_left = 2
+	_selected_option_style.corner_radius_top_right = 2
+	_selected_option_style.corner_radius_bottom_right = 2
+	_selected_option_style.corner_radius_bottom_left = 2
 	_build_rows()
 	if get_node_or_null("/root/GameData") != null:
 		GameData.stats_changed.connect(update_stats)
@@ -85,6 +94,8 @@ func update_story() -> void:
 	_story_pages = _paginate_text(StoryState.get_story_hook())
 	if _story_pages.is_empty():
 		_story_pages.append("")
+	var scene_title := StoryState.get_scene_title()
+	story_title.text = "Beobachtungen \"%s\"" % scene_title if scene_title != "" else "Beobachtungen"
 	var page_index := clampi(StoryState.story_page_index, 0, _story_pages.size() - 1)
 	story_text.text = _story_pages[page_index]
 	story_hint.text = "%d/%d  A/Enter weiter  Tab/RB Fokus  E/Y Modus" % [
@@ -104,19 +115,27 @@ func update_options() -> void:
 		var option = options[i]
 		if not (option is Dictionary):
 			continue
-		var index_label := Label.new()
-		index_label.text = ">" if i == StoryState.selected_option_index else str(i + 1)
-		index_label.add_theme_font_size_override("font_size", 20)
-		index_label.vertical_alignment = VERTICAL_ALIGNMENT_TOP
-		options_grid.add_child(index_label)
+		var row := PanelContainer.new()
+		row.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+		if i == StoryState.selected_option_index:
+			row.add_theme_stylebox_override("panel", _selected_option_style)
+		options_grid.add_child(row)
+
+		var row_margin := MarginContainer.new()
+		row_margin.add_theme_constant_override("margin_left", 10)
+		row_margin.add_theme_constant_override("margin_top", 4)
+		row_margin.add_theme_constant_override("margin_right", 10)
+		row_margin.add_theme_constant_override("margin_bottom", 4)
+		row.add_child(row_margin)
 
 		var option_label := Label.new()
-		option_label.text = String(option.get("option_text", ""))
+		option_label.text = "%d. %s" % [i + 1, String(option.get("option_text", ""))]
 		option_label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-		option_label.add_theme_font_size_override("font_size", 20)
+		option_label.add_theme_font_size_override("font_size", 18)
+		option_label.add_theme_constant_override("line_spacing", 0)
 		option_label.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-		option_label.modulate = Color(1.0, 1.0, 1.0, 1.0) if i == StoryState.selected_option_index else Color(0.78, 0.78, 0.78, 1.0)
-		options_grid.add_child(option_label)
+		option_label.add_theme_color_override("font_color", Color.WHITE if i == StoryState.selected_option_index else Color.BLACK)
+		row_margin.add_child(option_label)
 	options_hint.text = "W/S wählen  A/Enter weiter/bestätigen"
 
 func update_story_mode() -> void:
@@ -152,6 +171,7 @@ func _add_custom_row(grid: GridContainer, label_text: String, value_key: String)
 	var label := Label.new()
 	label.text = label_text
 	label.add_theme_font_size_override("font_size", 22)
+	label.add_theme_color_override("font_color", CORNER_TEXT_COLOR)
 	grid.add_child(label)
 
 	var value := Label.new()
@@ -159,6 +179,7 @@ func _add_custom_row(grid: GridContainer, label_text: String, value_key: String)
 	value.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
 	value.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	value.add_theme_font_size_override("font_size", 22)
+	value.add_theme_color_override("font_color", CORNER_TEXT_COLOR)
 	grid.add_child(value)
 	_value_labels[value_key] = value
 

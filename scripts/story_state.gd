@@ -90,6 +90,9 @@ func previous_story_page() -> void:
 func get_story_hook() -> String:
 	return String(current_story.get("story_hook", ""))
 
+func get_scene_title() -> String:
+	return String(current_story.get("scene_title", ""))
+
 func get_options() -> Array:
 	var raw_options = current_story.get("options", [])
 	return raw_options if raw_options is Array else []
