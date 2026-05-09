@@ -19,6 +19,11 @@ func _ready() -> void:
 	_play_idle()
 
 func _physics_process(_delta: float) -> void:
+	if get_node_or_null("/root/StoryState") != null and StoryState.mode == StoryState.Mode.STORY:
+		velocity = Vector2.ZERO
+		move_and_slide()
+		_play_idle()
+		return
 	var input_vec := Input.get_vector("move_left", "move_right", "move_up", "move_down")
 	velocity = input_vec * speed
 	move_and_slide()
