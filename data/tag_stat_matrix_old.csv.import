@@ -1,0 +1,19 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://sqkbyegq1iol"
+
+[deps]
+
+files=["res://data/tag_stat_matrix_old.proj.translation", "res://data/tag_stat_matrix_old.proj.translation", "res://data/tag_stat_matrix_old.proj.translation", "res://data/tag_stat_matrix_old.proj.translation", "res://data/tag_stat_matrix_old.sch.translation", "res://data/tag_stat_matrix_old.sch.translation", "res://data/tag_stat_matrix_old.sch.translation", "res://data/tag_stat_matrix_old.sch.translation", "res://data/tag_stat_matrix_old.lt.translation", "res://data/tag_stat_matrix_old.lt.translation", "res://data/tag_stat_matrix_old.lt.translation", "res://data/tag_stat_matrix_old.lt.translation", "res://data/tag_stat_matrix_old.lt.translation", "res://data/tag_stat_matrix_old.lt.translation", "res://data/tag_stat_matrix_old.lt.translation", "res://data/tag_stat_matrix_old.lt.translation", "res://data/tag_stat_matrix_old.ag.translation", "res://data/tag_stat_matrix_old.ag.translation", "res://data/tag_stat_matrix_old.ag.translation", "res://data/tag_stat_matrix_old.ag.translation"]
+
+source_file="res://data/tag_stat_matrix_old.csv"
+dest_files=["res://data/tag_stat_matrix_old.proj.translation", "res://data/tag_stat_matrix_old.proj.translation", "res://data/tag_stat_matrix_old.proj.translation", "res://data/tag_stat_matrix_old.proj.translation", "res://data/tag_stat_matrix_old.sch.translation", "res://data/tag_stat_matrix_old.sch.translation", "res://data/tag_stat_matrix_old.sch.translation", "res://data/tag_stat_matrix_old.sch.translation", "res://data/tag_stat_matrix_old.lt.translation", "res://data/tag_stat_matrix_old.lt.translation", "res://data/tag_stat_matrix_old.lt.translation", "res://data/tag_stat_matrix_old.lt.translation", "res://data/tag_stat_matrix_old.lt.translation", "res://data/tag_stat_matrix_old.lt.translation", "res://data/tag_stat_matrix_old.lt.translation", "res://data/tag_stat_matrix_old.lt.translation", "res://data/tag_stat_matrix_old.ag.translation", "res://data/tag_stat_matrix_old.ag.translation", "res://data/tag_stat_matrix_old.ag.translation", "res://data/tag_stat_matrix_old.ag.translation"]
+
+[params]
+
+compress=1
+delimiter=0
+unescape_keys=false
+unescape_translations=true

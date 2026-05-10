@@ -129,7 +129,7 @@ func update_options() -> void:
 		row.add_child(row_margin)
 
 		var option_label := Label.new()
-		option_label.text = "%d. %s" % [i + 1, String(option.get("option_text", ""))]
+		option_label.text = "%d. %s" % [i + 1, StoryState.get_option_text(option)]
 		option_label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 		option_label.add_theme_font_size_override("font_size", 18)
 		option_label.add_theme_constant_override("line_spacing", 0)

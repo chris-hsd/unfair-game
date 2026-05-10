@@ -1,0 +1,60 @@
+{
+  "scene_id": "06_angestarrt_im_flur",
+  "scene_title": "Angestarrt im Flur",
+  "scene_themes": [
+    "everyday_discrimination",
+    "angestarrt",
+    "unfreundlich_behandelt",
+    "schulkultur",
+    "atmosphaerische_abwertung",
+    "emergent_procedural_friction"
+  ],
+  "scene_context": "Kurz vor einer AG-Aktion im Schulflur. Die Projektleitung holt Material. Einige Schüler_innen und eine Aufsicht reagieren körperlich und atmosphärisch auffällig, ohne offen etwas Diskriminierendes zu sagen. Die Szene operationalisiert EDS-nahe Erfahrungen als angestarrt und unfreundlich behandelt werden.",
+  "scene_media": {
+    "background": "res://media/backgrounds/schulflur_pause.png",
+    "ambient_music": "res://media/audio/ambient/flur_pause_gedaempft.ogg",
+    "filter": "leicht_entsaettigt"
+  },
+  "scene_avatar_variants": [],
+  "story_hook": "Du trägst eine Kiste mit Stoffbeuteln, Klebeband und Markern durch den Flur. Gespräche werden leiser, als du an der Fensterbank vorbeigehst. Zwei Jugendliche schauen zu lange, dann weg. Die Aufsicht mustert die Kiste und fragt knapp: „Gehört das wirklich zur Schule?“ Hinter dir lacht jemand kurz. Nicht laut genug für einen Vorwurf. Laut genug, dass du langsamer wirst.",
+  "story_hook_variants": [],
+  "story_hook_media": {},
+  "options": [
+    {
+      "option_id": "opt_anmeldung_klaeren",
+      "option_text": "Ich halte die Kiste etwas fester und sage knapp: „Ja. Die Aktion ist angemeldet, der Raum ist gebucht, und ich bringe das Material jetzt dorthin.“",
+      "option_tags": {
+        "regelstrikt": 0.7,
+        "adressieren_direkt": 0.4,
+        "selbstanpassung": 0.3
+      }
+    },
+    {
+      "option_id": "opt_aktion_erklaeren",
+      "option_text": "Ich bleibe stehen und sage: „Das gehört zur AG. Die Jugendlichen arbeiten heute daran, wie Nachhaltigkeit im Schulalltag praktisch sichtbar werden kann.“",
+      "option_tags": {
+        "prio_sichtbarkeit": 0.6,
+        "framen_potenzial": 0.5,
+        "struktur_sichtbar_machen": 0.5
+      }
+    },
+    {
+      "option_id": "opt_ag_einbeziehen",
+      "option_text": "Ich rufe zwei AG-Mitglieder zu mir und sage: „Kommt ihr kurz mit? Wir bringen das gemeinsam rein, dann sieht man auch, dass das eure Aktion ist.“",
+      "option_tags": {
+        "prio_mitglieder": 0.8,
+        "unterstuetzen_aktiv": 0.6,
+        "prio_sichtbarkeit": 0.5
+      }
+    },
+    {
+      "option_id": "opt_blickordnung_markieren",
+      "option_text": "Ich bleibe stehen, schaue zur Aufsicht und sage: „Der Tofall macht es mir gerade schwer, hier mit der AG die geplante Aktion im Flur umzusetzen.“",
+      "option_tags": {
+        "anerkennung_einfordern": 0.7,
+        "struktur_sichtbar_machen": 0.7,
+        "adressieren_direkt": 0.5
+      }
+    }
+  ]
+}

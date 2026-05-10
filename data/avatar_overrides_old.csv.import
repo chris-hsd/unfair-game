@@ -1,0 +1,19 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://sgurqfpipke3"
+
+[deps]
+
+files=["res://data/avatar_overrides_old.tag.translation", "res://data/avatar_overrides_old.stat.translation", "res://data/avatar_overrides_old.multiplier.translation", "res://data/avatar_overrides_old.note.translation"]
+
+source_file="res://data/avatar_overrides_old.csv"
+dest_files=["res://data/avatar_overrides_old.tag.translation", "res://data/avatar_overrides_old.stat.translation", "res://data/avatar_overrides_old.multiplier.translation", "res://data/avatar_overrides_old.note.translation"]
+
+[params]
+
+compress=1
+delimiter=0
+unescape_keys=false
+unescape_translations=true

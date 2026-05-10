@@ -9,11 +9,7 @@ enum Mode { AVATAR, STORY }
 enum Focus { STORY, OPTIONS }
 
 const EffectEngineScript := preload("res://scripts/effect_engine.gd")
-const STORY_PATHS: Array[String] = [
-	"res://stories/01_kennenlernen.json",
-	"res://stories/02_themenwahl.json",
-	"res://stories/03_anna_verschwindet.json",
-]
+const STORY_DIRECTORY := "res://stories"
 
 var current_story: Dictionary = {}
 var current_story_index: int = 0
@@ -22,12 +18,15 @@ var story_page_index: int = 0
 var mode: int = Mode.STORY
 var focus: int = Focus.OPTIONS
 var is_complete: bool = false
+var _last_text_resolution: Dictionary = {}
+var _story_paths: Array[String] = []
 
 func _ready() -> void:
+	_story_paths = _load_story_paths()
 	load_story(0)
 
 func load_story(index: int) -> void:
-	if index >= STORY_PATHS.size():
+	if index >= _story_paths.size():
 		current_story = {
 			"scene_id": "complete",
 			"scene_title": "Ende",
@@ -36,12 +35,13 @@ func load_story(index: int) -> void:
 		}
 		is_complete = true
 	else:
-		var loaded := _load_json_file(STORY_PATHS[index])
+		var story_path := _story_paths[index]
+		var loaded := _load_json_file(story_path)
 		if loaded.is_empty():
 			current_story = {
 				"scene_id": "load_error",
 				"scene_title": "Fehler",
-				"story_hook": "Diese Szene konnte nicht geladen werden: %s" % STORY_PATHS[index],
+				"story_hook": "Diese Szene konnte nicht geladen werden: %s" % story_path,
 				"options": [],
 			}
 			is_complete = true
@@ -51,6 +51,7 @@ func load_story(index: int) -> void:
 	current_story_index = index
 	selected_option_index = 0
 	story_page_index = 0
+	_log_current_option_text_variants()
 	story_changed.emit()
 	selection_changed.emit()
 
@@ -91,11 +92,13 @@ func previous_story_page() -> void:
 func get_story_hook() -> String:
 	var variants = current_story.get("story_hook_variants", [])
 	var avatar_id := GameData.get_current_avatar_id() if get_node_or_null("/root/GameData") != null else ""
-	return resolve_text(
+	var text := resolve_text(
 		String(current_story.get("story_hook", "")),
 		variants if variants is Array else [],
 		avatar_id
 	)
+	_log_text_resolution("story_hook_variant", "", _last_text_resolution)
+	return text
 
 func get_scene_title() -> String:
 	return String(current_story.get("scene_title", ""))
@@ -103,6 +106,9 @@ func get_scene_title() -> String:
 func get_options() -> Array:
 	var raw_options = current_story.get("options", [])
 	return raw_options if raw_options is Array else []
+
+func get_option_text(option: Dictionary) -> String:
+	return _resolve_option_text(option, false)
 
 func get_selected_option() -> Dictionary:
 	var options := get_options()
@@ -131,20 +137,56 @@ func apply_selected_option_effects() -> Dictionary:
 	return deltas
 
 func resolve_text(default_text: String, variants: Array, avatar_id: String) -> String:
+	_last_text_resolution = {
+		"matched": false,
+		"index": -1,
+		"reason": "keine Variante traf",
+	}
 	for index in range(variants.size()):
 		var variant = variants[index]
 		if not (variant is Dictionary):
 			continue
 		var match_result := _variant_matches(variant, avatar_id)
 		if bool(match_result.get("matched", false)):
-			print("[StoryState] story_hook_variant scene_id=%s selected=%d reason=%s" % [
-				String(current_story.get("scene_id", "")),
-				index,
-				_join_reasons(match_result.get("reasons", [])),
-			])
+			_last_text_resolution = {
+				"matched": true,
+				"index": index,
+				"reason": _join_reasons(match_result.get("reasons", [])),
+			}
 			return String(variant.get("text", default_text))
-	print("[StoryState] story_hook_variant scene_id=%s selected=default reason=keine Variante traf" % String(current_story.get("scene_id", "")))
 	return default_text
+
+func _resolve_option_text(option: Dictionary, should_log: bool) -> String:
+	var variants = option.get("option_text_variants", [])
+	var avatar_id := GameData.get_current_avatar_id() if get_node_or_null("/root/GameData") != null else ""
+	var text := resolve_text(
+		String(option.get("option_text", "")),
+		variants if variants is Array else [],
+		avatar_id
+	)
+	if should_log:
+		_log_text_resolution("option_text_variant", String(option.get("option_id", "")), _last_text_resolution)
+	return text
+
+func _log_current_option_text_variants() -> void:
+	for option in get_options():
+		if option is Dictionary:
+			_resolve_option_text(option, true)
+
+func _log_text_resolution(kind: String, option_id: String, result: Dictionary) -> void:
+	if not bool(result.get("matched", false)):
+		return
+	var selected := "variant matched: %d" % int(result.get("index", -1))
+	var parts: Array[String] = [
+		"[StoryState]",
+		kind,
+		"scene_id=%s" % String(current_story.get("scene_id", "")),
+	]
+	if option_id != "":
+		parts.append("option_id=%s" % option_id)
+	parts.append("selected=%s" % selected)
+	parts.append("reason=%s" % String(result.get("reason", "")))
+	print(" ".join(parts))
 
 func _variant_matches(variant: Dictionary, avatar_id: String) -> Dictionary:
 	var reasons: Array[String] = []
@@ -213,6 +255,24 @@ func _compare_condition_value(current_value: float, operator: String, target_val
 
 func _fmt_float(value: float) -> String:
 	return "%.3f" % value
+
+func _load_story_paths() -> Array[String]:
+	var paths: Array[String] = []
+	var directory := DirAccess.open(STORY_DIRECTORY)
+	if directory == null:
+		push_error("Could not open story directory: %s" % STORY_DIRECTORY)
+		return paths
+
+	directory.list_dir_begin()
+	var file_name := directory.get_next()
+	while file_name != "":
+		if not directory.current_is_dir() and file_name.ends_with(".json"):
+			paths.append("%s/%s" % [STORY_DIRECTORY, file_name])
+		file_name = directory.get_next()
+	directory.list_dir_end()
+	paths.sort()
+	print("[StoryState] loaded %d story files from %s" % [paths.size(), STORY_DIRECTORY])
+	return paths
 
 func _load_json_file(path: String) -> Dictionary:
 	var file := FileAccess.open(path, FileAccess.READ)

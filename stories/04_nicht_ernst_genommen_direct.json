@@ -1,0 +1,65 @@
+{
+  "scene_id": "04_nicht_ernst_genommen",
+  "scene_title": "Nicht ernst genommen",
+  "scene_themes": [
+    "everyday_discrimination",
+    "nicht_ernst_genommen",
+    "kollegiale_abwertung",
+    "projektkrise",
+    "emergent_procedural_friction"
+  ],
+  "scene_context": "Mittlere Projektphase. Das AG-Projekt bleibt hinter den Erwartungen zurück. Im Kollegium entsteht die Deutung, dass die Leitung die Jugendlichen nicht erreicht, Nachhaltigkeit nicht richtig versteht oder schlicht unorganisiert arbeitet. Die Szene operationalisiert EDS-nahe Erfahrung als nicht ernst genommen werden, ohne die Ursache im Hook eindeutig zu benennen.",
+  "scene_media": {
+    "background": "res://media/backgrounds/lehrerzimmer_nachmittag.png",
+    "ambient_music": "res://media/audio/ambient/leiser_raumton.ogg",
+    "filter": "leicht_kuehl"
+  },
+  "scene_avatar_variants": [],
+  "story_hook": "Im Lehrerzimmer liegt der Projektplan zwischen Kaffeetassen und Korrekturstapeln. Jemand blättert darin, ohne dich anzusehen. „Vielleicht war das Thema einfach zu abstrakt für die Jugendlichen“, sagt eine Kollegin. Ein anderer ergänzt: „Oder es braucht jemanden, der mehr Zugang zu denen hat.“ Das Gespräch läuft weiter, als wärst du nur zur Hälfte im Raum. Auf dem Plan ist dein Name mit Bleistift unterstrichen.",
+  "story_hook_variants": [],
+  "story_hook_media": {},
+  "options": [
+    {
+      "option_id": "opt_rueckmeldungen_klaeren",
+      "option_text": "Ich lege den Projektplan auf den Tisch und sage: „Moment, so stimmt das nicht. Die Rückmeldungen aus der AG zeigen etwas anderes.“",
+      "option_text_variants": [],
+      "option_tags": {
+        "adressieren_direkt": 0.5,
+        "struktur_sichtbar_machen": 0.8
+      },
+      "option_media": {}
+    },
+    {
+      "option_id": "opt_bedingungen_verschieben",
+      "option_text": "Ich atme hörbar aus und sage: „Es geht hier nicht nur um meinen Zugang. Die AG arbeitet gerade unter Bedingungen, die ihr gar nicht mitdenkt.“",
+      "option_text_variants": [],
+      "option_tags": {
+        "framen_struktur": 0.7,
+        "prio_mitglieder": 0.6,
+        "struktur_sichtbar_machen": 0.5
+      },
+      "option_media": {}
+    },
+    {
+      "option_id": "opt_kritik_aufnehmen",
+      "option_text": "Ich nicke angespannt und sage: „Okay, dann nehme ich das auf meine Kappe. Ich werde die nächsten Schritte enger steuern.“",
+      "option_text_variants": [],
+      "option_tags": {
+        "selbstanpassung": 0.9,
+        "regelstrikt": 0.6,
+        "framen_defizit": 0.4
+      },
+      "option_media": {}
+    },
+    {
+      "option_id": "opt_anerkennung_einfordern",
+      "option_text": "Mit leicht genervter Stimme sage ich: „Liebe Kolleg:innen, sprecht nicht über meine Arbeit, als wäre ich nicht im Raum!“",
+      "option_text_variants": [],
+      "option_tags": {
+        "anerkennung_einfordern": 0.9,
+        "adressieren_direkt": 0.5
+      },
+      "option_media": {}
+    }
+  ]
+}

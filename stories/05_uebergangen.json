@@ -1,0 +1,60 @@
+{
+  "scene_id": "05_uebergangen",
+  "scene_title": "Übergangen",
+  "scene_themes": [
+    "everyday_discrimination",
+    "ignoriert",
+    "nicht_beachtet",
+    "institutionelle_kommunikation",
+    "projektkoordination",
+    "emergent_procedural_friction"
+  ],
+  "scene_context": "Planungstreffen vor einer sichtbaren Projektaktion. Die Leitung weist darauf hin, dass Nachbereitung, Aufräumen und Erklärarbeit nicht wieder unsichtbar bei den AG-Mitgliedern landen sollten. Der Beitrag wird zunächst übergangen und kurz darauf von einer anderen Person anerkannt. Die Szene operationalisiert EDS-nahe Erfahrung als ignoriert bzw. nicht beachtet werden.",
+  "scene_media": {
+    "background": "res://media/backgrounds/besprechungsraum_schule.png",
+    "ambient_music": "res://media/audio/ambient/neonlicht_leise.ogg",
+    "filter": "neutral_kuehl"
+  },
+  "scene_avatar_variants": [],
+  "story_hook": "Die Besprechung ist fast vorbei. Du weist darauf hin, dass die Jugendlichen nach der Aktion nicht allein mit Aufräumen, Erklären und Nachfragen bleiben sollten. Niemand notiert etwas. Zwei Minuten später sagt der AG-Leiter der Technik fast denselben Satz: „Wir brauchen danach jemanden für die Nachbereitung.“ Sofort nicken mehrere. Ein Stift kratzt über Papier. Neben deinem Namen bleibt die Spalte leer.",
+  "story_hook_variants": [],
+  "story_hook_media": {},
+  "options": [
+    {
+      "option_id": "opt_beitrag_markieren",
+      "option_text": "Ich beuge mich vor und sage: „Das war genau der Punkt, den ich gerade eingebracht habe. Bitte nehmt ihn auch bei meinem Namen ins Protokoll auf.“",
+      "option_tags": {
+        "anerkennung_einfordern": 0.8,
+        "adressieren_direkt": 0.5,
+        "dokumentieren": 0.6
+      }
+    },
+    {
+      "option_id": "opt_nachbereitung_absichern",
+      "option_text": "Ich schlucke den Moment herunter und sage: „Wichtig ist jetzt, dass die Jugendlichen nach der Aktion nicht allein mit der Nachbereitung dastehen.“",
+      "option_tags": {
+        "prio_mitglieder": 0.8,
+        "struktur_sichtbar_machen": 0.5,
+        "selbstanpassung": 0.4
+      }
+    },
+    {
+      "option_id": "opt_verantwortung_verteilen",
+      "option_text": "Ich schaue in die Runde und frage: „Wer übernimmt konkret Aufräumen, Nachfragen und Erklären, damit diese Arbeit nicht wieder unsichtbar bei der AG landet?“",
+      "option_tags": {
+        "verantwortung_verteilen": 0.8,
+        "struktur_sichtbar_machen": 0.7,
+        "adressieren_direkt": 0.4
+      }
+    },
+    {
+      "option_id": "opt_formal_protokollieren",
+      "option_text": "Ich öffne das Protokoll und sage ruhig: „Ich ergänze das jetzt als offenen Punkt: Nachbereitung, Zuständigkeit, Entlastung der AG-Mitglieder.“",
+      "option_tags": {
+        "dokumentieren": 0.8,
+        "regelstrikt": 0.5,
+        "struktur_sichtbar_machen": 0.5
+      }
+    }
+  ]
+}
