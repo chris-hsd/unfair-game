@@ -89,7 +89,13 @@ func previous_story_page() -> void:
 	story_changed.emit()
 
 func get_story_hook() -> String:
-	return String(current_story.get("story_hook", ""))
+	var variants = current_story.get("story_hook_variants", [])
+	var avatar_id := GameData.get_current_avatar_id() if get_node_or_null("/root/GameData") != null else ""
+	return resolve_text(
+		String(current_story.get("story_hook", "")),
+		variants if variants is Array else [],
+		avatar_id
+	)
 
 func get_scene_title() -> String:
 	return String(current_story.get("scene_title", ""))
@@ -123,6 +129,90 @@ func apply_selected_option_effects() -> Dictionary:
 	)
 	GameData.apply_deltas(deltas)
 	return deltas
+
+func resolve_text(default_text: String, variants: Array, avatar_id: String) -> String:
+	for index in range(variants.size()):
+		var variant = variants[index]
+		if not (variant is Dictionary):
+			continue
+		var match_result := _variant_matches(variant, avatar_id)
+		if bool(match_result.get("matched", false)):
+			print("[StoryState] story_hook_variant scene_id=%s selected=%d reason=%s" % [
+				String(current_story.get("scene_id", "")),
+				index,
+				_join_reasons(match_result.get("reasons", [])),
+			])
+			return String(variant.get("text", default_text))
+	print("[StoryState] story_hook_variant scene_id=%s selected=default reason=keine Variante traf" % String(current_story.get("scene_id", "")))
+	return default_text
+
+func _variant_matches(variant: Dictionary, avatar_id: String) -> Dictionary:
+	var reasons: Array[String] = []
+	if variant.has("avatar_id"):
+		var expected_avatar_id := String(variant.get("avatar_id", ""))
+		if avatar_id != expected_avatar_id:
+			return {"matched": false, "reasons": []}
+		reasons.append("matched avatar_id=%s" % avatar_id)
+
+	if variant.has("condition"):
+		var condition = variant.get("condition", {})
+		if not (condition is Dictionary):
+			push_warning("Invalid variant condition in scene: %s" % String(current_story.get("scene_id", "")))
+			return {"matched": false, "reasons": []}
+		for stat_key in condition.keys():
+			var stat_id := String(stat_key)
+			var expression := String(condition[stat_key]).strip_edges()
+			var comparison := _parse_condition_expression(expression)
+			if not bool(comparison.get("valid", false)):
+				push_warning("Invalid variant condition expression: %s%s" % [stat_id, expression])
+				return {"matched": false, "reasons": []}
+			var current_value := GameData.get_stat_internal(stat_id) if get_node_or_null("/root/GameData") != null else 0.0
+			if not _compare_condition_value(current_value, String(comparison.get("operator", "")), float(comparison.get("value", 0.0))):
+				return {"matched": false, "reasons": []}
+			reasons.append("condition %s%s erfuellt mit %s=%s" % [
+				stat_id,
+				expression,
+				stat_id,
+				_fmt_float(current_value),
+			])
+
+	return {"matched": true, "reasons": reasons}
+
+func _join_reasons(reasons: Array) -> String:
+	var text_parts: Array[String] = []
+	for reason in reasons:
+		text_parts.append(String(reason))
+	return "; ".join(text_parts)
+
+func _parse_condition_expression(expression: String) -> Dictionary:
+	for operator in [">=", "<=", "==", ">", "<"]:
+		if expression.begins_with(operator):
+			var number_text := expression.substr(operator.length()).strip_edges()
+			if not number_text.is_valid_float():
+				return {"valid": false}
+			return {
+				"valid": true,
+				"operator": operator,
+				"value": number_text.to_float(),
+			}
+	return {"valid": false}
+
+func _compare_condition_value(current_value: float, operator: String, target_value: float) -> bool:
+	match operator:
+		">":
+			return current_value > target_value
+		"<":
+			return current_value < target_value
+		">=":
+			return current_value >= target_value
+		"<=":
+			return current_value <= target_value
+		"==":
+			return is_equal_approx(current_value, target_value)
+	return false
+
+func _fmt_float(value: float) -> String:
+	return "%.3f" % value
 
 func _load_json_file(path: String) -> Dictionary:
 	var file := FileAccess.open(path, FileAccess.READ)
