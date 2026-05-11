@@ -1,8 +1,20 @@
-[gd_scene load_steps=2 format=3]
+[gd_scene format=3 uid="uid://dhmwubgml1qaa"]
 
-[ext_resource type="Script" path="res://scenes/outro_screen.gd" id="1_outro"]
+[ext_resource type="Script" uid="uid://drhs6283lxy1f" path="res://scenes/outro_screen.gd" id="1_outro"]
 
-[node name="OutroScreen" type="Control"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_header_cell"]
+content_margin_left = 14.0
+content_margin_top = 12.0
+content_margin_right = 14.0
+content_margin_bottom = 12.0
+bg_color = Color(0, 0, 0, 0)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.639216, 0.309804, 0, 1)
+
+[node name="OutroScreen" type="Control" unique_id=624698224]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -11,7 +23,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_outro")
 
-[node name="Background" type="ColorRect" parent="."]
+[node name="Background" type="ColorRect" parent="." unique_id=327404559]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -20,7 +32,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
-[node name="Content" type="VBoxContainer" parent="."]
+[node name="Content" type="VBoxContainer" parent="." unique_id=1451547877]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -35,15 +47,54 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 34
 
-[node name="Title" type="Label" parent="Content"]
+[node name="Title" type="Label" parent="Content" unique_id=747456305]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.976471, 0.960784, 0.921569, 1)
 theme_override_font_sizes/font_size = 48
-text = "Dein Profil"
+text = "Dein Entscheidungsprofil"
 horizontal_alignment = 1
 
-[node name="ProfileTable" type="VBoxContainer" parent="Content"]
+[node name="ProfileTable" type="VBoxContainer" parent="Content" unique_id=2002395834]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme_override_constants/v_separation = 0
+
+[node name="HeaderRow" type="HBoxContainer" parent="Content/ProfileTable" unique_id=2120303051]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 0
+
+[node name="ExperienceHeaderCell" type="PanelContainer" parent="Content/ProfileTable/HeaderRow" unique_id=1397804802]
+custom_minimum_size = Vector2(190, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_header_cell")
+
+[node name="Label" type="Label" parent="Content/ProfileTable/HeaderRow/ExperienceHeaderCell" unique_id=257413087]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.717647, 0.717647, 0.717647, 1)
+theme_override_font_sizes/font_size = 22
+text = "Spielerfahrung"
+
+[node name="PercentHeaderCell" type="PanelContainer" parent="Content/ProfileTable/HeaderRow" unique_id=922268796]
+custom_minimum_size = Vector2(110, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_header_cell")
+
+[node name="Label" type="Label" parent="Content/ProfileTable/HeaderRow/PercentHeaderCell" unique_id=645117762]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.717647, 0.717647, 0.717647, 1)
+theme_override_font_sizes/font_size = 22
+text = "Prozent"
+
+[node name="InterpretationHeaderCell" type="PanelContainer" parent="Content/ProfileTable/HeaderRow" unique_id=1496959922]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_header_cell")
+
+[node name="Label" type="Label" parent="Content/ProfileTable/HeaderRow/InterpretationHeaderCell" unique_id=1938595806]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.717647, 0.717647, 0.717647, 1)
+theme_override_font_sizes/font_size = 22
+text = "Interpretation"
