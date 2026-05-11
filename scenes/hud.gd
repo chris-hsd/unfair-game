@@ -7,7 +7,9 @@ const AUFMERKSAMKEIT_STATS: Array[String] = ["lt_aufm_leist", "lt_aufm_sicht", "
 const INTERPRETATION_STATS: Array[String] = ["lt_int_def", "lt_int_pot", "lt_int_str"]
 const STORY_PAGE_CHAR_LIMIT := 260
 const CORNER_TEXT_COLOR := Color(0.058824, 0.298039, 0.458824, 1.0)
+const OUTRO_SCENE_PATH := "res://scenes/outro_screen.tscn"
 
+@onready var achievement_bar: Control = $Root/AchievementBar
 @onready var projekt_grid: GridContainer = $Root/ProjektPanel/MarginContainer/ProjektLayout/Grid
 @onready var schule_grid: GridContainer = $Root/SchulePanel/MarginContainer/SchuleLayout/Grid
 @onready var leitung_grid: GridContainer = $Root/LeitungPanel/MarginContainer/LeitungLayout/Grid
@@ -34,6 +36,7 @@ func _ready() -> void:
 	_selected_option_style.corner_radius_bottom_right = 2
 	_selected_option_style.corner_radius_bottom_left = 2
 	_build_rows()
+	achievement_bar.set_label_font_size_from_story_font_size(story_text.get_theme_font_size("font_size"))
 	if get_node_or_null("/root/GameData") != null:
 		GameData.stats_changed.connect(update_stats)
 	if get_node_or_null("/root/StoryState") != null:
@@ -46,6 +49,10 @@ func _ready() -> void:
 	update_story_mode()
 
 func _unhandled_input(event: InputEvent) -> void:
+	if event is InputEventKey and event.pressed and not event.echo and event.keycode == KEY_F9:
+		achievement_bar.debug_toggle_next_path()
+		get_viewport().set_input_as_handled()
+		return
 	if get_node_or_null("/root/StoryState") == null:
 		return
 	if event.is_action_pressed("story_toggle_mode"):
@@ -104,6 +111,11 @@ func update_story() -> void:
 	]
 	update_options()
 	update_story_mode()
+	# TODO: Once path unlock conditions are defined, call PathEvaluator.evaluate_paths_from_stats(GameData.stats)
+	# here and forward the resulting Dictionary to set_path_unlocked(path_id, is_unlocked).
+
+func set_path_unlocked(path_id: String, is_unlocked: bool) -> void:
+	achievement_bar.set_path_unlocked(path_id, is_unlocked)
 
 func update_options() -> void:
 	if get_node_or_null("/root/StoryState") == null:
@@ -205,6 +217,9 @@ func _confirm_or_continue() -> void:
 	await get_tree().create_timer(0.8).timeout
 	decision_message.visible = false
 	StoryState.advance_story()
+	if StoryState.is_complete:
+		get_tree().change_scene_to_file(OUTRO_SCENE_PATH)
+		return
 	_is_confirming_decision = false
 
 func _paginate_text(text: String) -> Array[String]:

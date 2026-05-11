@@ -1,6 +1,7 @@
-[gd_scene format=3 uid="uid://chudoldman001"]
+[gd_scene load_steps=7 format=3 uid="uid://chudoldman001"]
 
 [ext_resource type="Script" uid="uid://cunis5icpl3w4" path="res://scenes/hud.gd" id="1_hud"]
+[ext_resource type="PackedScene" path="res://scenes/achievement_bar.tscn" id="2_achievement"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hud"]
 bg_color = Color(0.972549, 0.960784, 0.92549, 0.94)
@@ -10,7 +11,7 @@ corner_radius_bottom_right = 16
 corner_radius_bottom_left = 16
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_options"]
-bg_color = Color(0.917647, 0.909804, 0.886275, 0.96)
+bg_color = Color(0.909804, 0.847059, 0.54902, 0.96)
 corner_radius_top_left = 16
 corner_radius_top_right = 16
 corner_radius_bottom_right = 16
@@ -23,6 +24,17 @@ corner_radius_top_right = 16
 corner_radius_bottom_right = 16
 corner_radius_bottom_left = 16
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_title"]
+content_margin_left = 10.0
+content_margin_top = 4.0
+content_margin_right = 10.0
+content_margin_bottom = 4.0
+bg_color = Color(0.058824, 0.298039, 0.458824, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
 [node name="HUD" type="CanvasLayer" unique_id=1797580751]
 script = ExtResource("1_hud")
 
@@ -34,6 +46,17 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+
+[node name="AchievementBar" parent="Root" instance=ExtResource("2_achievement")]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -395.0
+offset_top = 12.0
+offset_right = 395.0
+offset_bottom = 98.0
+grow_horizontal = 2
 
 [node name="ProjektPanel" type="PanelContainer" parent="Root" unique_id=820447875]
 custom_minimum_size = Vector2(408, 0)
@@ -56,11 +79,15 @@ layout_mode = 2
 theme_override_constants/separation = 8
 
 [node name="Title" type="Label" parent="Root/ProjektPanel/MarginContainer/ProjektLayout"]
+custom_minimum_size = Vector2(0, 34)
 layout_mode = 2
-theme_override_colors/font_color = Color(0.058824, 0.298039, 0.458824, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_weight = 700
 theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_title")
 text = "Projekt"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Grid" type="GridContainer" parent="Root/ProjektPanel/MarginContainer/ProjektLayout" unique_id=549393656]
 layout_mode = 2
@@ -93,11 +120,15 @@ layout_mode = 2
 theme_override_constants/separation = 8
 
 [node name="Title" type="Label" parent="Root/SchulePanel/MarginContainer/SchuleLayout"]
+custom_minimum_size = Vector2(0, 34)
 layout_mode = 2
-theme_override_colors/font_color = Color(0.058824, 0.298039, 0.458824, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_weight = 700
 theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_title")
 text = "Schule"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Grid" type="GridContainer" parent="Root/SchulePanel/MarginContainer/SchuleLayout" unique_id=1962458533]
 layout_mode = 2
@@ -130,11 +161,15 @@ layout_mode = 2
 theme_override_constants/separation = 8
 
 [node name="Title" type="Label" parent="Root/LeitungPanel/MarginContainer/LeitungLayout"]
+custom_minimum_size = Vector2(0, 34)
 layout_mode = 2
-theme_override_colors/font_color = Color(0.058824, 0.298039, 0.458824, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_weight = 700
 theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_title")
 text = "Leitung"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Grid" type="GridContainer" parent="Root/LeitungPanel/MarginContainer/LeitungLayout" unique_id=2111078829]
 layout_mode = 2
@@ -170,11 +205,15 @@ layout_mode = 2
 theme_override_constants/separation = 8
 
 [node name="Title" type="Label" parent="Root/AgPanel/MarginContainer/AgLayout"]
+custom_minimum_size = Vector2(0, 34)
 layout_mode = 2
-theme_override_colors/font_color = Color(0.058824, 0.298039, 0.458824, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_weight = 700
 theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_title")
 text = "AG Mitglieder"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Grid" type="GridContainer" parent="Root/AgPanel/MarginContainer/AgLayout" unique_id=1651346908]
 layout_mode = 2
@@ -207,11 +246,15 @@ layout_mode = 2
 theme_override_constants/separation = 10
 
 [node name="Title" type="Label" parent="Root/OptionsPanel/MarginContainer/OptionsLayout"]
+custom_minimum_size = Vector2(0, 34)
 layout_mode = 2
-theme_override_colors/font_color = Color(0.058824, 0.298039, 0.458824, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_weight = 700
 theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_title")
 text = "Reaktionen"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="OptionsGrid" type="GridContainer" parent="Root/OptionsPanel/MarginContainer/OptionsLayout"]
 layout_mode = 2
@@ -252,11 +295,15 @@ layout_mode = 2
 theme_override_constants/separation = 8
 
 [node name="Title" type="Label" parent="Root/StoryPanel/MarginContainer/StoryLayout"]
+custom_minimum_size = Vector2(0, 34)
 layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_weight = 700
 theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_title")
 text = "Beobachtungen"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="StoryText" type="Label" parent="Root/StoryPanel/MarginContainer/StoryLayout"]
 layout_mode = 2

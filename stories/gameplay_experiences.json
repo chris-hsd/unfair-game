@@ -1,0 +1,28 @@
+{
+  "experiences": [
+	{
+	  "id": "anpassung",
+	  "name": "Pfad der Anpassung",
+	  "percentage": 0,
+	  "interpretation": "Du hast Konflikte klein gehalten, damit das Projekt weitergehen konnte. Viele Abläufe wurden stabiler, weil du Erwartungen erfüllt, Regeln genutzt und Eskalationen vermieden hast — nicht aus Bequemlichkeit, sondern mit Blick auf das größere Ganze. Der Preis: Nicht jede Zumutung wurde angesprochen."
+	},
+	{
+	  "id": "beziehung",
+	  "name": "Pfad der Beziehung",
+	  "percentage": 0,
+	  "interpretation": "Du hast die AG als Beziehungsraum gestärkt. Jugendliche konnten sich beteiligen, kommentieren und gesehen fühlen. Der Preis: Was für die Gruppe wichtig war, war für die Institution nicht immer gut verwertbar."
+	},
+	{
+	  "id": "wirkung",
+	  "name": "Pfad der Wirkung",
+	  "percentage": 0,
+	  "interpretation": "Du hast das Projekt vorangebracht. Ergebnisse wurden sichtbar, Ideen übertragbar, Fortschritt messbar. Der Preis: Wirkung wurde honoriert, wenn sie gezeigt, gezählt und erzählt werden konnte."
+	},
+	{
+	  "id": "selbstbehauptung",
+	  "name": "Pfad der Haltung",
+	  "percentage": 0,
+	  "interpretation": "Du hast Abwertung nicht einfach geschluckt. Du hast benannt, eingefordert und Grenzen gezogen. Der Preis: Was fachlich notwendig war, wurde nicht immer als angenehm oder kooperativ empfunden."
+	}
+  ]
+}

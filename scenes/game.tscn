@@ -1,11 +1,14 @@
-[gd_scene format=3 uid="uid://2rm75aggmnjt" load_steps=5]
+[gd_scene format=3 uid="uid://2rm75aggmnjt" load_steps=6]
 
 [ext_resource type="PackedScene" uid="uid://playerscene0001" path="res://scenes/player.tscn" id="1_player"]
 [ext_resource type="PackedScene" uid="uid://chudoldman001" path="res://scenes/hud.tscn" id="2_hud"]
 [ext_resource type="Script" uid="uid://drah6ikibqpuw" path="res://scripts/current_project.gd" id="3_curproj"]
 [ext_resource type="Resource" path="res://assets/projects/nachhaltigkeit.tres" id="4_project"]
+[ext_resource type="PackedScene" path="res://scenes/scene_world.tscn" id="5_scene_world"]
 
 [node name="Game" type="Node2D" unique_id=630053644]
+
+[node name="SceneWorld" parent="." instance=ExtResource("5_scene_world")]
 
 [node name="Player" parent="." unique_id=614380754 instance=ExtResource("1_player")]
 

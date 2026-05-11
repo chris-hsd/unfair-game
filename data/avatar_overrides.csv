@@ -16,7 +16,7 @@ alter_mann,anerkennung_einfordern,sch_vert,0.6,geringere Vertrauensstrafe weil d
 alter_mann,anerkennung_einfordern,sch_norm,0.8,Normbruch wird schwächer sanktioniert weil Autoritaet und institutionelle Passung zugeschrieben werden
 alter_mann,struktur_sichtbar_machen,sch_vert,0.8,Strukturanalyse irritiert weniger weil sie eher als erfahrungsbasierte Einordnung gilt
 frau_migration,anerkennung_einfordern,sch_vert,1.6,staerkere Vertrauensstrafe weil Anerkennungseinfordern schneller als unangemessen oder emotional gelesen wird
-frau_migration,anerkennung_einfordern,ag_anerk,1.3,AG-Mitglieder lesen das Einfordern eher als sichtbare Selbstbehauptung gegen Abwertung
+frau_migration,anerkennung_einfordern,ag_anerk,1.3,AG-Mitglieder lesen das Einfordern eher als sichtbare Haltung gegen Abwertung
 frau_migration,struktur_sichtbar_machen,sch_vert,1.4,Strukturanalyse wird institutionell unbequemer gelesen und kostet daher mehr Vertrauen
 frau_migration,struktur_sichtbar_machen,ag_anerk,1.2,AG-Mitglieder erkennen eher dass Bedingungen statt individuelle Defizite sichtbar gemacht werden
 frau_migration,selbstanpassung,sch_vert,1.4,institutionelle Akzeptanz steigt staerker wenn Kritik selbstdisziplinierend aufgenommen wird

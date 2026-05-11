@@ -266,13 +266,18 @@ func _load_story_paths() -> Array[String]:
 	directory.list_dir_begin()
 	var file_name := directory.get_next()
 	while file_name != "":
-		if not directory.current_is_dir() and file_name.ends_with(".json"):
+		if not directory.current_is_dir() and file_name.ends_with(".json") and _is_story_scene_file(file_name):
 			paths.append("%s/%s" % [STORY_DIRECTORY, file_name])
 		file_name = directory.get_next()
 	directory.list_dir_end()
 	paths.sort()
 	print("[StoryState] loaded %d story files from %s" % [paths.size(), STORY_DIRECTORY])
 	return paths
+
+func _is_story_scene_file(file_name: String) -> bool:
+	if file_name.length() < 3:
+		return false
+	return file_name.substr(0, 2).is_valid_int() and file_name.substr(2, 1) == "_"
 
 func _load_json_file(path: String) -> Dictionary:
 	var file := FileAccess.open(path, FileAccess.READ)
