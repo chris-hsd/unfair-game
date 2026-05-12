@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://2no1x710fswk"]
+
+[ext_resource type="Script" uid="uid://c4yopvd0bk5vc" path="res://scenes/world.gd" id="1_scene_world"]
+[ext_resource type="Texture2D" uid="uid://8jrmfr6k5iii" path="res://assets/scene_worlds/melting clock.png" id="2_tnhg1"]
+
+[node name="World" type="Node2D" unique_id=1734617737]
+script = ExtResource("1_scene_world")
+
+[node name="Background" type="ColorRect" parent="." unique_id=1470809892]
+custom_minimum_size = Vector2(1700, 1000)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -850.0
+offset_top = -500.0
+offset_right = 850.0
+offset_bottom = 500.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.98, 0.96, 0.92, 1)
+
+[node name="MeltingClock" type="Sprite2D" parent="." unique_id=1139021695]
+position = Vector2(124.60001, -2.408002)
+scale = Vector2(0.10273437, 0.10067968)
+texture = ExtResource("2_tnhg1")
+
+[node name="WorldObjects" type="Node2D" parent="." unique_id=298763102]
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=600823789]
+zoom = Vector2(5, 5)

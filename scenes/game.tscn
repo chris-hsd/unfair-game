@@ -1,21 +1,18 @@
-[gd_scene format=3 uid="uid://2rm75aggmnjt" load_steps=6]
+[gd_scene format=3 uid="uid://2rm75aggmnjt"]
 
-[ext_resource type="PackedScene" uid="uid://playerscene0001" path="res://scenes/player.tscn" id="1_player"]
+[ext_resource type="PackedScene" uid="uid://bxq8bms52at3e" path="res://scenes/player.tscn" id="1_player"]
 [ext_resource type="PackedScene" uid="uid://chudoldman001" path="res://scenes/hud.tscn" id="2_hud"]
 [ext_resource type="Script" uid="uid://drah6ikibqpuw" path="res://scripts/current_project.gd" id="3_curproj"]
 [ext_resource type="Resource" path="res://assets/projects/nachhaltigkeit.tres" id="4_project"]
-[ext_resource type="PackedScene" path="res://scenes/scene_world.tscn" id="5_scene_world"]
+[ext_resource type="PackedScene" uid="uid://2no1x710fswk" path="res://scenes/world.tscn" id="5_scene_world"]
 
 [node name="Game" type="Node2D" unique_id=630053644]
 
-[node name="SceneWorld" parent="." instance=ExtResource("5_scene_world")]
+[node name="World" parent="." unique_id=171192638 instance=ExtResource("5_scene_world")]
 
-[node name="Player" parent="." unique_id=614380754 instance=ExtResource("1_player")]
+[node name="Player" parent="World" unique_id=614380754 instance=ExtResource("1_player")]
 
 [node name="HUD" parent="." unique_id=1415199076 instance=ExtResource("2_hud")]
-
-[node name="Camera2D" type="Camera2D" parent="." unique_id=422782666]
-zoom = Vector2(5, 5)
 
 [node name="CurrentProject" type="Node" parent="." unique_id=410623912]
 script = ExtResource("3_curproj")

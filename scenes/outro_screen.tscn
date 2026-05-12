@@ -74,7 +74,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_header_cell")
 layout_mode = 2
 theme_override_colors/font_color = Color(0.717647, 0.717647, 0.717647, 1)
 theme_override_font_sizes/font_size = 22
-text = "Spielerfahrung"
+text = "Spielfokus"
 
 [node name="PercentHeaderCell" type="PanelContainer" parent="Content/ProfileTable/HeaderRow" unique_id=922268796]
 custom_minimum_size = Vector2(110, 0)
@@ -86,7 +86,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_header_cell")
 layout_mode = 2
 theme_override_colors/font_color = Color(0.717647, 0.717647, 0.717647, 1)
 theme_override_font_sizes/font_size = 22
-text = "Prozent"
+text = "Anteil"
 
 [node name="InterpretationHeaderCell" type="PanelContainer" parent="Content/ProfileTable/HeaderRow" unique_id=1496959922]
 layout_mode = 2
