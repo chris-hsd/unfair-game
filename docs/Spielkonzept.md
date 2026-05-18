@@ -29,7 +29,7 @@ Das Spiel benennt diesen Unterschiede nicht explizit, bzw. es gibt kein Label: �
 
 ### Offen für eigene Geschichten
 
-Die Situationen im Spiel liegen als bearbeitbare Texte vor. Das heißt: UNFAIR ist nicht auf einen festen Satz Szenen festgelegt. Eigene Fälle lassen sich einbringen – Geschichten von außen, aus der eigenen Erfahrung und Praxis können durchgespielt werden. Ein Fall / eine Szene kann dabei immer multiperspektifisch und vergangenheitsbezogen aufgebaut werden (die offene Frage bist hier noch das Interfacedesign - wieviele Optionen und Abhängigkeiten kann sich eine Geschichte 'leisten' bevor sie unleserlich wird.
+Die Situationen im Spiel liegen als bearbeitbare Texte vor. Das heißt: UNFAIR ist nicht auf einen festen Satz Szenen festgelegt. Eigene Fälle lassen sich einbringen – Geschichten von außen, aus der eigenen Erfahrung und Praxis können durchgespielt werden. Ein Fall / eine Szene kann dabei immer multiperspektivisch und vergangenheitsbezogen aufgebaut werden (die offene Frage bist hier noch das Interfacedesign - wieviele Optionen und Abhängigkeiten kann sich eine Geschichte 'leisten' bevor sie unleserlich wird.
 
 ### Was UNFAIR will – und was nicht
 
