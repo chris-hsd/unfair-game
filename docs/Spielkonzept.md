@@ -1,4 +1,6 @@
 <img width="1442" height="942" alt="image" src="https://github.com/user-attachments/assets/12351861-6baf-4d17-8666-4827c9e516da" />
+<img width="1620" height="684" alt="image" src="https://github.com/user-attachments/assets/5b6ce69f-e4ea-40fd-bce7-8bbe0da00a16" />
+
 
 
 ## UNFAIR
